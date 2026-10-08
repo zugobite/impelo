@@ -1,5 +1,6 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { downloadContent, pricingContent } from './product-pages.mjs'
 
 const pagesDirectory = join(process.cwd(), 'server/assets/prototype')
 const pageFiles = (await readdir(pagesDirectory)).filter(file => file.endsWith('.html'))
@@ -7,40 +8,6 @@ const pageFiles = (await readdir(pagesDirectory)).filter(file => file.endsWith('
 const platformLinks = '<nav aria-label="Platform"><h3 data-t="footerPlatform">Platform</h3><a href="/#platform" data-t="platform">The platform</a><a href="/how-it-works/" data-t="how">How it works</a><a href="/pricing/" data-t="pricing">Pricing</a><a href="/download/">Download Apps</a></nav>'
 const projectLinks = '<nav aria-label="Project"><h3 data-t="footerProject">Project</h3><a href="/about-impelo/" data-t="team">About Impelo</a><a href="/contact/" data-t="contact">Contact</a><a href="/about-impelo/#research">Our Research</a></nav>'
 const companyLinks = '<nav aria-label="Company"><h3 lang="en">Company</h3><a href="/careers/">Careers</a><a href="/partners/">Partners</a><a href="/newsroom/">Newsroom</a><a href="/help-centre/">Help Centre</a></nav>'
-
-const pricingComparison = `<section class="pricing-comparison section" id="compare-plans" lang="en">
-  <div class="section-heading">
-    <div><p class="eyebrow green">Compare Every Plan</p><h2>Know What Each Tier Unlocks.</h2></div>
-    <p>Compare the proposed limits, tools and support included in each illustrative Impelo package.</p>
-  </div>
-  <p class="comparison-scroll-note">Scroll sideways to compare all plans on smaller screens.</p>
-  <div class="comparison-table-wrap" tabindex="0" role="region" aria-label="Scrollable plan comparison">
-    <table class="comparison-table">
-      <caption>Planned Impelo practice package features and limits</caption>
-      <thead><tr><th scope="col">Feature or limit</th><th scope="col">Practice Essentials<span>R499 / month</span></th><th scope="col" class="featured-column">Practice Team<span>R1 299 / month</span></th><th scope="col">Clinic Network<span>R2 999 / month</span></th></tr></thead>
-      <tbody>
-        <tr class="comparison-group"><th scope="colgroup" colspan="4">Practice scale</th></tr>
-        <tr><th scope="row">Practice locations</th><td>1 location</td><td>1 location</td><td>Up to 3 locations</td></tr>
-        <tr><th scope="row">Staff accounts</th><td>Up to 5</td><td>Up to 15</td><td>Up to 40 total</td></tr>
-        <tr><th scope="row">Patient access</th><td><span class="comparison-check" aria-label="Included">✓</span> Included</td><td><span class="comparison-check" aria-label="Included">✓</span> Included</td><td><span class="comparison-check" aria-label="Included">✓</span> Included</td></tr>
-        <tr class="comparison-group"><th scope="colgroup" colspan="4">Visit coordination</th></tr>
-        <tr><th scope="row">Check-in and visit-stage queue</th><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td></tr>
-        <tr><th scope="row">Appointment calendar and visit details</th><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td></tr>
-        <tr><th scope="row">Patient documents and published visits</th><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td></tr>
-        <tr><th scope="row">Multiple practitioner schedules</th><td><span class="comparison-dash" aria-label="Not included">—</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td></tr>
-        <tr><th scope="row">Separate queues and team handoffs</th><td><span class="comparison-dash" aria-label="Not included">—</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td></tr>
-        <tr class="comparison-group"><th scope="colgroup" colspan="4">Reporting and controls</th></tr>
-        <tr><th scope="row">Operational reporting</th><td>Daily exports</td><td>Filtered reports</td><td>Combined multi-site reports</td></tr>
-        <tr><th scope="row">Location-specific roles and queues</th><td><span class="comparison-dash" aria-label="Not included">—</span></td><td><span class="comparison-dash" aria-label="Not included">—</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td></tr>
-        <tr><th scope="row">Consent-managed record requests</th><td><span class="comparison-dash" aria-label="Not included">—</span></td><td><span class="comparison-dash" aria-label="Not included">—</span></td><td><span class="comparison-check" aria-label="Included">✓</span></td></tr>
-        <tr class="comparison-group"><th scope="colgroup" colspan="4">Setup and support</th></tr>
-        <tr><th scope="row">Onboarding</th><td>Self-guided</td><td>Guided onboarding</td><td>Phased rollout</td></tr>
-        <tr><th scope="row">Support</th><td>Email support</td><td>Priority support</td><td>Named support contact</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="comparison-disclosure"><strong>Prototype comparison.</strong> Features, limits, prices and availability are proposed examples, not a live commercial offer. Final packaging and terms must be confirmed before launch.</p>
-</section>`
 
 function cleanFooter(html) {
   return html
@@ -55,13 +22,6 @@ for (const filename of pageFiles) {
   const path = join(pagesDirectory, filename)
   const html = await readFile(path, 'utf8')
   let updatedHtml = cleanFooter(html)
-  if (filename === 'pricing.html') {
-    updatedHtml = updatedHtml
-      .replace(/<section class="pricing-comparison section".*?<\/section>/s, '')
-      .replace('<div class="patient-access-band">', `${pricingComparison}<div class="patient-access-band">`)
-      .replace('</head>', '<link rel="stylesheet" href="/pricing-comparison.css"></head>')
-      .replace(/(?:<link rel="stylesheet" href="\/pricing-comparison\.css">){2,}/g, '<link rel="stylesheet" href="/pricing-comparison.css">')
-  }
   await writeFile(path, updatedHtml)
 }
 
@@ -108,52 +68,25 @@ for (const [filename, page] of Object.entries(companyPages)) {
   await writeFile(join(pagesDirectory, filename), cleanFooter(html))
 }
 
-const downloadContent = `<main id="main" class="download-page" lang="en">
-  <section class="download-hero">
-    <div>
-      <p class="eyebrow">Impelo On Every Device</p>
-      <h1>Try Impelo Everywhere.</h1>
-      <p>Your phone between visits. Your tablet at reception. Your computer in the clinic. Impelo is being designed to keep the next step clear wherever care happens.</p>
-      <a class="btn" href="#platforms">Explore The Apps</a>
-    </div>
-    <div class="download-device-cloud"><img class="pixel-device-art pixel-device-cloud-art" src="/assets/pixel-device-cloud.png" alt="Pixel-art desktop monitor, tablet and smartphone displaying a healthcare dashboard"></div>
-  </section>
-  <section class="download-platforms section" id="platforms">
-    <div class="section-heading"><div><p class="eyebrow green">Choose Your Platform</p><h2>One Clear Experience. Every Screen.</h2></div><p>The Impelo apps are still in development. Preview the planned availability below and check back as launch approaches.</p></div>
-    <div class="download-grid">
-      <article class="download-card">
-        <div class="download-card-copy"><span class="platform-mark" aria-hidden="true">A</span><p class="availability-pill">Coming Soon</p><h3>Android</h3><p>Keep appointments, visit context and the next step close at hand on Android phones and tablets.</p><button class="btn" type="button" disabled aria-disabled="true">Google Play · Coming Soon</button></div>
-        <figure class="download-card-art mobile-art"><img class="pixel-device-art" src="/assets/pixel-phone-mockup.png" alt="Pixel-art smartphone showing a planned Impelo patient app"></figure>
-      </article>
-      <article class="download-card reverse">
-        <div class="download-card-copy"><span class="platform-mark" aria-hidden="true">iOS</span><p class="availability-pill">Coming Soon</p><h3>iPhone & iPad</h3><p>Move through the same calm, connected visit experience across iPhone and iPad.</p><button class="btn" type="button" disabled aria-disabled="true">App Store · Coming Soon</button></div>
-        <figure class="download-card-art tablet-art"><img class="pixel-device-art" src="/assets/pixel-phone-mockup.png" alt="Pixel-art smartphone showing a planned Impelo iOS app"></figure>
-      </article>
-      <article class="download-card">
-        <div class="download-card-copy"><span class="platform-mark" aria-hidden="true">▦</span><p class="availability-pill">Coming Soon</p><h3>Windows</h3><p>Give clinic teams a focused desktop workspace for arrivals, queues and permitted patient context.</p><button class="btn" type="button" disabled aria-disabled="true">Windows App · Coming Soon</button></div>
-        <figure class="download-card-art desktop-art"><img class="pixel-device-art" src="/assets/pixel-desktop-mockup.png" alt="Pixel-art desktop monitor showing a planned Impelo clinic workspace"></figure>
-      </article>
-      <article class="download-card reverse">
-        <div class="download-card-copy"><span class="platform-mark" aria-hidden="true">⌘</span><p class="availability-pill">Coming Soon</p><h3>macOS</h3><p>Bring the Impelo clinic workspace to Mac with the same familiar roles, information and handoffs.</p><button class="btn" type="button" disabled aria-disabled="true">Mac App · Coming Soon</button></div>
-        <figure class="download-card-art desktop-art"><img class="pixel-device-art" src="/assets/pixel-desktop-mockup.png" alt="Pixel-art desktop monitor showing a planned Impelo macOS clinic workspace"></figure>
-      </article>
-    </div>
-  </section>
-  <section class="download-cta section">
-    <p class="eyebrow">Be First To Know</p>
-    <h2>We’ll Share The Next Step.</h2>
-    <p>Ask about planned app availability, clinic pilots or early access for your team.</p>
-    <a class="btn cream" href="/contact/?topic=partnership">Register Your Interest</a>
-  </section>
-</main>`
-
 const downloadPage = template
   .replace(/<title>.*?<\/title>/, '<title>Download Impelo — Mobile & Desktop Apps</title>')
   .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="Explore the planned Impelo apps for Android, iOS, Windows and macOS. All downloads are coming soon.">')
-  .replace('</head>', '<link rel="stylesheet" href="/download.css"></head>')
+  .replace('</head>', '<link rel="stylesheet" href="/product-pages.css"><link rel="stylesheet" href="/download.css"></head>')
   .replace(/data-public-page="[^"]*"/, 'data-public-page="download"')
   .replace(/<main id="main">.*?<\/main>/s, downloadContent)
 
 await writeFile(join(pagesDirectory, 'download.html'), cleanFooter(downloadPage))
+
+const currentPricing = await readFile(join(pagesDirectory, 'pricing.html'), 'utf8')
+const pricingResearch = currentPricing.match(/<section class="section pricing-research"[\s\S]*?<\/section>/)?.[0] || ''
+const pricingPage = template
+  .replace(/<title>.*?<\/title>/, '<title>Pricing — Impelo</title>')
+  .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="Compare proposed Impelo practice plans, staff and location limits, features and support.">')
+  .replace('</head>', '<link rel="stylesheet" href="/product-pages.css"><link rel="stylesheet" href="/pricing-comparison.css"></head>')
+  .replace(/data-public-page="[^"]*"/, 'data-public-page="pricing"')
+  .replace(/<main id="main">.*?<\/main>/s, pricingContent.replace('<section class="product-cta">', pricingResearch + '<section class="product-cta">'))
+  .replace('<a href="/pricing/" data-t="pricing">', '<a href="/pricing/" data-t="pricing" aria-current="page">')
+
+await writeFile(join(pagesDirectory, 'pricing.html'), cleanFooter(pricingPage))
 
 console.log(`Updated ${pageFiles.length} customer footers, created ${Object.keys(companyPages).length} company pages and the download page.`)

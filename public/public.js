@@ -63,6 +63,8 @@
   const annual=billing==='annual';
   const money=cents=>'R'+(cents/100).toLocaleString('en-ZA',{minimumFractionDigits:cents%100?2:0,maximumFractionDigits:2});
   $$('[data-plan-amount]').forEach(el=>{const base=Number(el.dataset.monthlyCents),amount=annual?Math.round(base*.9):base;el.textContent=money(amount);el.closest('.package-plan').querySelector('[data-plan-total]').textContent=money(annual?amount*12:amount)+(annual?' Billed Yearly':' Billed Monthly');});
+  $$('[data-comparison-amount]').forEach(el=>{const base=Number(el.dataset.monthlyCents);el.textContent=money(annual?Math.round(base*.9):base)+(annual?' / month, billed yearly':' / month');});
+  $$('[data-comparison-enquiry]').forEach(link=>{const url=new URL(link.href);url.searchParams.set('billing',billing);link.href=url.pathname+url.search;});
   $$('.package-plan a[href]').forEach(link=>{const url=new URL(link.href);url.searchParams.set('billing',billing);link.href=url.pathname+url.search;});
   note.textContent=annual?'Annual example: 10% less than 12 monthly payments. Monthly equivalents shown; the full yearly total would be paid upfront. No payment is taken.':'Monthly example: the displayed amount would be billed each month. No payment is taken.';note.lang='en';
  }

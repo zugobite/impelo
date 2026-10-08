@@ -35,3 +35,9 @@ pnpm build
 - `/download/`
 
 The HTML is served through Nuxt's Nitro middleware so the prototype markup and browser behavior remain byte-for-byte close to the approved source. Shared visual assets, fonts, CSS, and client controllers live in `public/`.
+
+## Product pages
+
+Download and pricing content lives in `scripts/product-pages.mjs`. After editing it, run `node scripts/clean-customer-footer.mjs` to regenerate the served HTML. This also keeps the customer footers and corporate placeholder pages consistent.
+
+The pages share `public/product-pages.css`, with route-specific download and pricing styles. Pixel-style device frames are rendered in HTML/CSS around the original screenshots in `public/assets/platform-screens/`; the screen images remain uncropped and unrounded. Proposed pricing, limits and availability are defined together in the content module, and `public/public.js` synchronizes monthly/annual amounts across plan cards and the comparison table.
