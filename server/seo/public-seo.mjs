@@ -260,6 +260,7 @@ export function injectPublicSeo(html, pathname) {
 
   let out = html
     .replace(/<!-- impelo-seo-start -->[\s\S]*?<!-- impelo-seo-end -->/g, '')
+    .replace(/<link rel="(?:icon|shortcut icon|apple-touch-icon)"[^>]*>\s*/gi, '')
     .replace(/<title>.*?<\/title>/i, `<title>${escapeHtml(seo.title)}</title>`)
     .replace(
       /<meta name="description" content="[^"]*">/i,
@@ -267,6 +268,10 @@ export function injectPublicSeo(html, pathname) {
     )
 
   const block = `<!-- impelo-seo-start -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="${escapeHtml(url)}">
 <link rel="alternate" hreflang="en-ZA" href="${escapeHtml(url)}">
 <link rel="alternate" hreflang="x-default" href="${escapeHtml(url)}">
