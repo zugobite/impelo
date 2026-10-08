@@ -92,6 +92,14 @@
  $('#language').addEventListener('change',e=>{lang=e.target.value;renderLang(true)});$('#footer-language').addEventListener('change',e=>{lang=e.target.value;renderLang(true)});
  const menu=$('.menu-toggle');
  const menuLabel=menu?.querySelector('span');
+ const header=$('.pub-header');
+ const banner=$('.platform-banner');
+ const syncHeader=()=>{
+  if(!header)return;
+  const open=document.body.classList.contains('menu-open');
+  const threshold=banner?banner.offsetHeight:8;
+  header.classList.toggle('is-scrolled',!open&&window.scrollY>threshold);
+ };
  const setMenu=open=>{
   if(!menu)return;
   menu.setAttribute('aria-expanded',String(open));
@@ -100,7 +108,10 @@
   menu.querySelector('use')?.setAttribute('href',open?'#i-x':'#i-menu');
   if(open){menu.setAttribute('aria-label',text('close'));menuLabel?.setAttribute('aria-hidden','true');}
   else{menu.removeAttribute('aria-label');menuLabel?.removeAttribute('aria-hidden');}
+  syncHeader();
  };
+ syncHeader();
+ window.addEventListener('scroll',syncHeader,{passive:true});
  menu?.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
  $('#main-nav')?.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){setMenu(false);menu.focus()}});
