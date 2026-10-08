@@ -1,0 +1,137 @@
+{
+  "generatedOn": "2026-10-08",
+  "tool": "Built-in image_gen.imagegen",
+  "textPolicy": "none",
+  "wordmarkPolicy": "none",
+  "webSize": {
+    "width": 1200,
+    "height": 630
+  },
+  "notes": "Artwork-only scenes. PNG masters are saved in artwork/seo; JPEG social previews are saved in public/assets/seo. Old text-bearing originals were not added to the project.",
+  "prompts": {
+    "remove-text": "Use case: precise-object-edit\nInput images: Image 1 is the edit target, an existing pixel-art social preview.\nPrimary request: remove ALL baked-in typography, every letter, word, title, caption and brand wordmark from this image. The final image must contain only the illustrated scene, with zero text, zero wordmarks and zero standalone brand logos.\nChange only the lettering/branding regions: reconstruct the original clean white/pale-slate background underneath them, blending seamlessly. Leave these cleared areas empty so the user can later add their own consistent typography.\nPreserve: original dimensional pixel/voxel artwork, people and their exact faces/poses/clothing, objects, architecture, garden, colours, composition, lighting, camera angle, image dimensions and crop. Keep existing pictorial scene details; do not invent new objects or enlarge/reposition the scene.\nConstraints: opaque wide landscape output, same aspect ratio as original; no new text, letters, numerals, pseudo-writing, captions, watermark, logos, borders or rounded corners. No crop or redesign. This is a targeted text removal, not a new illustration.",
+    "newsroom-artwork": "Use case: stylized-concept\nAsset type: artwork-only social preview for the Impelo newsroom URL, opaque wide landscape 1200x630 (1.905:1).\nScene: a pixel-art company-update bulletin board with completely blank unlettered notices, a small desk microphone and a green plant, in a calm airy community-healthcare workspace.\nStyle: finely crafted dimensional pixel/voxel illustration made of small square blocks, same restrained editorial family as the other Impelo scenes.\nPalette: forest #1D3C26, green #3B784C, sage #B3C3A9, slate #334155, white #FFFFFF and pale slate #F8FAFC, restrained warm wood accents.\nComposition: compact illustrated scene on right, generous clean empty white/pale-slate area on left for the user’s later editing, no border or rounded corners, safe margins.\nHard constraints: ZERO text, ZERO letters, ZERO numbers, ZERO wordmarks, ZERO logos, ZERO pseudo-writing, ZERO watermark. Artwork only. Notices must be genuinely blank. No headline, caption, brand name, UI screenshots or live-service claims."
+  },
+  "assets": [
+    {
+      "slug": "home",
+      "sourceFile": "exec-98b0fcfb-2122-4a68-a650-91ebeee99b96.png",
+      "editTargetSourceFile": "exec-ca3db688-c7fa-41f7-b837-3fdabf608c10.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/home.png",
+      "socialImage": "public/assets/seo/home.jpg"
+    },
+    {
+      "slug": "how-it-works",
+      "sourceFile": "exec-08562789-6819-4d79-92b0-3ff1d9274bc5.png",
+      "editTargetSourceFile": "exec-887641c6-5bea-4d5c-ab7b-6551b3afee1a.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/how-it-works.png",
+      "socialImage": "public/assets/seo/how-it-works.jpg"
+    },
+    {
+      "slug": "about-impelo",
+      "sourceFile": "exec-883a794d-e330-4f9d-b085-acfeb9fdfd44.png",
+      "editTargetSourceFile": "exec-f70e3c95-5f8d-4856-87de-bef9ab80aaaa.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/about-impelo.png",
+      "socialImage": "public/assets/seo/about-impelo.jpg"
+    },
+    {
+      "slug": "pricing",
+      "sourceFile": "exec-3e30bfa5-08fc-4d3f-bbf8-58ab20fd2e7a.png",
+      "editTargetSourceFile": "exec-8e3368ae-5f8a-4501-9467-55eb95de1cef.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/pricing.png",
+      "socialImage": "public/assets/seo/pricing.jpg"
+    },
+    {
+      "slug": "contact",
+      "sourceFile": "exec-4912fd1e-c64d-4105-84a9-c54aa0e0f467.png",
+      "editTargetSourceFile": "exec-ddb78cf7-86c8-447a-b5e3-3d3804da2810.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/contact.png",
+      "socialImage": "public/assets/seo/contact.jpg"
+    },
+    {
+      "slug": "download",
+      "sourceFile": "exec-a24d4451-8622-4d72-821e-ed91a94e2aa0.png",
+      "editTargetSourceFile": "exec-c0894d6e-3a28-49ab-b09e-f6a88944a916.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/download.png",
+      "socialImage": "public/assets/seo/download.jpg"
+    },
+    {
+      "slug": "legal",
+      "sourceFile": "exec-3376c9ef-054b-4409-a134-42bdabc8f70c.png",
+      "editTargetSourceFile": "exec-599af225-3cdd-45f9-a02d-775740f77ba5.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/legal.png",
+      "socialImage": "public/assets/seo/legal.jpg"
+    },
+    {
+      "slug": "privacy",
+      "sourceFile": "exec-3c249a0e-a332-49d9-8395-fc68c2468b35.png",
+      "editTargetSourceFile": "exec-72cb8b4c-a29d-4885-b6b8-7372dcaf85de.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/privacy.png",
+      "socialImage": "public/assets/seo/privacy.jpg"
+    },
+    {
+      "slug": "cookies",
+      "sourceFile": "exec-0db2e44f-42f4-4acc-8b65-a0dfe74562ad.png",
+      "editTargetSourceFile": "exec-59330dcd-c242-4650-ab58-ad24f7dde677.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/cookies.png",
+      "socialImage": "public/assets/seo/cookies.jpg"
+    },
+    {
+      "slug": "terms",
+      "sourceFile": "exec-1aa9b55b-2344-477b-93fe-bda70911147c.png",
+      "editTargetSourceFile": "exec-9069bffb-ed31-42c5-bb8c-b3f5cedac85e.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/terms.png",
+      "socialImage": "public/assets/seo/terms.jpg"
+    },
+    {
+      "slug": "information-access",
+      "sourceFile": "exec-0f7ce867-d754-41a4-b0a4-79303b69d3ec.png",
+      "editTargetSourceFile": "exec-7dc0a905-ff3f-4666-ae4e-efdb0868391b.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/information-access.png",
+      "socialImage": "public/assets/seo/information-access.jpg"
+    },
+    {
+      "slug": "careers",
+      "sourceFile": "exec-76a6a8e4-3b98-4206-af15-b68f2fd878bb.png",
+      "editTargetSourceFile": "exec-f98ed4c6-e429-4037-ba89-a9c73e39c207.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/careers.png",
+      "socialImage": "public/assets/seo/careers.jpg"
+    },
+    {
+      "slug": "partners",
+      "sourceFile": "exec-b9bd3f91-560b-4456-9e9e-c8137454c831.png",
+      "editTargetSourceFile": "exec-df8122fa-3a7e-48e3-97f9-b7d924686b3f.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/partners.png",
+      "socialImage": "public/assets/seo/partners.jpg"
+    },
+    {
+      "slug": "help-centre",
+      "sourceFile": "exec-4b8c4928-1bf2-4008-8347-d72e8c78d338.png",
+      "editTargetSourceFile": "exec-b564b61f-b1af-424b-aa58-21f55360ff96.png",
+      "promptId": "remove-text",
+      "master": "artwork/seo/help-centre.png",
+      "socialImage": "public/assets/seo/help-centre.jpg"
+    },
+    {
+      "slug": "newsroom",
+      "sourceFile": "exec-e4424563-ca81-4610-a0e8-412e172f910c.png",
+      "editTargetSourceFile": null,
+      "promptId": "newsroom-artwork",
+      "master": "artwork/seo/newsroom.png",
+      "socialImage": "public/assets/seo/newsroom.jpg"
+    }
+  ]
+}
