@@ -1,4 +1,5 @@
 const screenRoot = '/assets/platform-screens'
+const actionArrow = '<svg class="ico" data-icon="inline-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow-right"/></svg>'
 
 // Screens remain original image files. Only the surrounding device is illustrated.
 export function device(kind, screen, alt, extraClass = '') {
@@ -29,7 +30,7 @@ export const downloadContent = `<main id="main" class="download-page product-pag
       <p class="eyebrow">Impelo on every device</p>
       <h1>A clearer view.<br><em>Wherever you are.</em></h1>
       <p class="product-lead">Your phone between visits. Your tablet at home. Your desktop for the bigger picture. One familiar place to find your next step.</p>
-      <a class="btn" href="#platforms">Explore the apps <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="#platforms">Explore the apps ${actionArrow}</a>
       <p class="product-availability"><span class="pixel-status" aria-hidden="true"></span> Mobile and desktop apps coming soon</p>
     </div>
     <div class="product-device-scene" aria-label="Real Impelo screens in pixel-art device frames">
@@ -47,10 +48,10 @@ export const downloadContent = `<main id="main" class="download-page product-pag
       <div class="download-card-top"><span class="product-index">${p.number} / ${p.label}</span><span class="availability-pill">Coming soon</span></div>
       <div class="download-card-copy"><p class="platform-kicker">${p.category}</p><h3>${p.name}</h3><p>${p.copy}</p></div>
       <div class="device-stage device-stage-${p.stage}">${p.art}</div>
-      <div class="download-card-bottom"><span>${p.store}</span><button class="btn" type="button" disabled aria-disabled="true" aria-label="${p.name} app coming soon">Coming soon <span aria-hidden="true">↗</span></button></div>
+      <div class="download-card-bottom"><span>${p.store}</span><button class="btn" type="button" disabled aria-disabled="true" aria-label="${p.name} app coming soon">Coming soon ${actionArrow}</button></div>
     </article>`).join('')}</div>
   </section>
-  <section class="product-cta"><p class="eyebrow">The next step starts here</p><h2>Get to know <em>Impelo.</em></h2><p>Explore the visit experience or talk to us about the apps and early access for your practice.</p><div class="product-actions"><a class="btn cream" href="/how-it-works/">Try the experience <span aria-hidden="true">↗</span></a><a class="product-text-link" href="/contact/?topic=practice">Ask about app availability</a></div></section>
+  <section class="product-cta"><p class="eyebrow">The next step starts here</p><h2>Get to know <em>Impelo.</em></h2><p>Explore the visit experience or talk to us about the apps and early access for your practice.</p><div class="product-actions"><a class="btn cream" href="/how-it-works/">Try the experience ${actionArrow}</a><a class="product-text-link" href="/contact/?topic=practice">Ask about app availability</a></div></section>
 </main>`
 
 const plans = [
@@ -84,7 +85,7 @@ const pricingComparison = `<section class="pricing-comparison product-section" i
 
 export const pricingContent = `<main id="main" class="pricing-page product-page" lang="en">
   <section class="product-hero pricing-hero">
-    <div class="product-hero-copy"><p class="eyebrow">A plan for your practice</p><h1>Room for care.<br><em>Room to grow.</em></h1><p class="product-lead">Start with the people and places that make your practice yours. Find the right balance of everyday tools, team coordination and support.</p><div class="product-actions"><a class="btn" href="#pricing">Explore plans <span aria-hidden="true">↗</span></a><a class="product-text-link" href="#compare-plans">Compare every feature</a></div><p class="product-availability">Proposed packages · Patient access stays R0</p></div>
+    <div class="product-hero-copy"><p class="eyebrow">A plan for your practice</p><h1>Room for care.<br><em>Room to grow.</em></h1><p class="product-lead">Start with the people and places that make your practice yours. Find the right balance of everyday tools, team coordination and support.</p><div class="product-actions"><a class="btn" href="#pricing">Explore plans ${actionArrow}</a><a class="product-text-link" href="#compare-plans">Compare every feature</a></div><p class="product-availability">Proposed packages · Patient access stays R0</p></div>
     <div class="product-device-scene pricing-device-scene"><span class="scene-tag" aria-hidden="true">A clearer picture of the day</span>${desktop('hero-desktop')}<p class="device-caption">Inside the Impelo platform</p></div>
   </section>
   <section class="product-section pricing-packages" id="pricing">
@@ -97,7 +98,7 @@ export const pricingContent = `<main id="main" class="pricing-page product-page"
       <div class="package-price"><p class="plan-price"><span data-plan-amount data-monthly-cents="${p.cents}">${p.amount}</span><span class="price-period"> / month</span></p><p class="package-billing" data-plan-total>${p.amount} billed monthly</p></div>
       <ul class="tier-capacity" aria-label="Plan limits">${p.scope.map(s=>`<li>${s}</li>`).join('')}</ul>
       <p class="package-list-label">Planned inclusions</p><ul class="tier-inclusions">${p.features.map(f=>`<li><span aria-hidden="true">✓</span>${f}</li>`).join('')}</ul>
-      <a class="btn${p.key==='team'?'':' outline'}" href="/contact/?topic=${p.topic}&amp;plan=${p.key}">${p.link} <span aria-hidden="true">↗</span></a>
+      <a class="btn${p.key==='team'?'':' outline'}" href="/contact/?topic=${p.topic}&amp;plan=${p.key}">${p.link} ${actionArrow}</a>
     </article>`).join('')}</div>
     <p class="pricing-disclosure">Annual examples apply a proposed 10% reduction, paid for 12 months upfront. Final pricing, tax treatment and terms will be confirmed before launch.</p>
   </section>
@@ -110,5 +111,5 @@ export const pricingContent = `<main id="main" class="pricing-page product-page"
     <details><summary>Are mobile and desktop apps available?</summary><p>Android, iOS, Windows and macOS apps are coming soon. <a href="/download/">See the app previews and planned platforms.</a></p></details>
     <details><summary>How does annual billing work?</summary><p>The annual example reduces the monthly equivalent by 10%. The full yearly amount would be paid upfront. Select Annual above to see both the monthly equivalent and yearly total.</p></details>
   </div></section>
-  <section class="product-cta"><p class="eyebrow">Built around your people</p><h2>Let’s find<br><em>your starting point.</em></h2><p>Tell us about your practice, your team and the way you work. We’ll explore the right next step together.</p><a class="btn cream" href="/contact/?topic=practice">Discuss your practice <span aria-hidden="true">↗</span></a></section>
+  <section class="product-cta"><p class="eyebrow">Built around your people</p><h2>Let’s find<br><em>your starting point.</em></h2><p>Tell us about your practice, your team and the way you work. We’ll explore the right next step together.</p><a class="btn cream" href="/contact/?topic=practice">Discuss your practice ${actionArrow}</a></section>
 </main>`

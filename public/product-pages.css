@@ -6,9 +6,7 @@ html body.public-prototype .product-hero h1 { font-family:var(--font-sans); font
 .product-page h1 em,.product-page h2 em { color:var(--brand-slate); font-weight:inherit; font-style:normal; }
 html body.public-prototype .product-page .eyebrow { font-family:var(--font-sans); font-size:14px; font-weight:500; color:var(--brand-slate); }
 .product-lead { max-width:480px; color:var(--brand-slate); font-size:17px; line-height:1.8; margin-bottom:28px; }
-html body.public-prototype .product-page .btn { border-radius:3px; min-height:48px; padding:14px 22px; font-size:14px; gap:20px; background:var(--brand-accent-green); color:var(--primary-foreground); box-shadow:3px 3px 0 var(--brand-sage); }
-html body.public-prototype .product-page .btn.cream { background:var(--brand-paper); color:var(--brand-forest); box-shadow:3px 3px 0 var(--brand-sage); }
-html body.public-prototype .product-page .btn.outline { background:transparent; color:var(--brand-forest); border:1px solid var(--brand-sage); box-shadow:none; }
+/* Button appearance comes entirely from the shared platform component. */
 .product-actions { display:flex; align-items:center; flex-wrap:wrap; gap:26px; }
 .product-text-link { display:inline-block; font-size:14px; font-weight:500; line-height:1.6; text-decoration:underline; text-underline-offset:6px; }
 .product-availability { display:flex; gap:10px; align-items:center; margin:24px 0 0; font-size:12px; color:var(--prose-muted); }

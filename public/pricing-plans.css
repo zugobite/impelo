@@ -2,10 +2,7 @@
 html body.public-prototype .pricing-page .pricing-packages { background:var(--brand-paper); padding-block:72px 60px; }
 .pricing-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
 .billing-controls { display:flex; align-items:center; flex-wrap:wrap; gap:18px; }
-html body.public-prototype .pricing-page .billing-picker { margin:0; padding:4px; border:1px solid var(--border); border-radius:3px; background:var(--brand-surface-green); }
-html body.public-prototype .pricing-page .billing-picker [data-slot=tabs-list] { background:transparent; border-radius:0; padding:0; height:auto; box-shadow:none; }
-html body.public-prototype .pricing-page .billing-picker [data-billing] { border-radius:2px; padding:10px 22px; min-height:42px; height:auto; color:var(--brand-slate); font-size:13px; background:transparent; border:0; box-shadow:none; }
-html body.public-prototype .pricing-page .billing-picker [data-billing][aria-pressed=true] { background:var(--brand-forest); color:var(--brand-paper); box-shadow:2px 2px 0 var(--brand-sage); }
+html body.public-prototype .pricing-page .billing-picker { margin:0; }
 .billing-saving { color:var(--prose-muted); font-size:10px; letter-spacing:.02em; }
 html body.public-prototype .pricing-page .billing-note { max-width:760px; font-size:12px; line-height:1.7; color:var(--prose-muted); margin:18px 0 30px; min-height:42px; }
 .pricing-tier-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:stretch; }
@@ -26,7 +23,8 @@ html body.public-prototype .pricing-page .pricing-tier .plan-price { display:fle
 .tier-inclusions { list-style:none; margin:0 0 30px; padding:0; display:grid; gap:13px; flex:1; }
 .tier-inclusions li { display:flex; align-items:start; gap:10px; color:var(--brand-slate); font-size:13px; line-height:1.6; }
 .tier-inclusions li>span { color:var(--brand-accent-green); flex-shrink:0; font-weight:700; }
-html body.public-prototype .pricing-page .pricing-tier>.btn { width:100%; font-size:12px; margin-top:auto; gap:12px; }
+/* Card placement only; variants, sizing and interaction states are shared. */
+.pricing-tier [data-slot=button] { width:100%; margin-top:auto; }
 .pricing-disclosure { font-size:11px; line-height:1.8; color:var(--prose-muted); margin-top:24px; max-width:850px; }
 html body.public-prototype .pricing-page .patient-access-band { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:80px; padding-block:58px; background:var(--brand-surface-green); border-block:1px solid var(--border); border-radius:0; align-items:center; }
 .patient-access-value>.eyebrow { font-size:10px; }

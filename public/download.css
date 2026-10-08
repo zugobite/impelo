@@ -18,7 +18,6 @@ html body.public-prototype .download-page .device-stage { margin:12px 16px 0; pa
 .device-stage-pair .pixel-device-phone { width:105px; margin-bottom:-8px; }
 .device-stage-desktop .pixel-device { width:min(100%,470px); }
 .download-card-bottom { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:24px 28px; font-size:12px; color:var(--prose-muted); }
-html body.public-prototype .download-card button[disabled] { opacity:1; background:var(--brand-surface-slate); color:var(--prose-muted); box-shadow:none; border:1px solid var(--border); cursor:default; font-size:12px; min-height:40px; padding:9px 14px; }
 @media(max-width:1000px) { .product-strip { gap:28px; } .device-stage { padding-inline:12px; } .device-stage-pair .pixel-device-tablet { width:170px; } .device-stage-pair .pixel-device-phone { width:90px; } }
 @media(max-width:760px) {
   .product-strip { flex-wrap:wrap; gap:10px 24px; justify-content:start; font-size:11px; }
