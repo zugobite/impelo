@@ -2,7 +2,7 @@ import { copyFile, mkdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { execFileSync } from 'node:child_process'
 
-// Conversion only: preserve the generated artwork and all text without cropping.
+// Conversion only: preserve the artwork (and any manually added typography) without cropping.
 const sourceDirectory = process.argv[2] || join(process.cwd(), 'artwork/seo')
 const outputDirectory = join(process.cwd(), 'public/assets/seo')
 const artworkDirectory = join(process.cwd(), 'artwork/seo')

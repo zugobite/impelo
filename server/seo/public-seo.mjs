@@ -1,8 +1,10 @@
-/** @typedef {{ title: string, description: string, ogType?: string, robots?: string, softwareApp?: boolean, breadcrumb?: string[] }} PageSeo */
+import { SOCIAL_IMAGES } from './social-images.mjs'
+
+/** @typedef {{ title: string, description: string, ogType?: string, robots?: string, softwareApp?: boolean, breadcrumb?: string[], ogImage?: string, ogImageAlt?: string }} PageSeo */
 
 export const SITE_URL = (process.env.NUXT_PUBLIC_SITE_URL || 'https://impelo.org.za').replace(/\/+$/, '')
 
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/footer-community-garden.png`
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/seo/home.jpg`
 
 /** Routes included in sitemap.xml (trailing slash canonical on site). */
 export const SITEMAP_ROUTES = [
@@ -12,10 +14,6 @@ export const SITEMAP_ROUTES = [
   '/pricing/',
   '/contact/',
   '/download/',
-  '/help-centre/',
-  '/careers/',
-  '/partners/',
-  '/newsroom/',
   '/legal/',
   '/privacy/',
   '/terms/',
@@ -135,7 +133,16 @@ export function normalizePublicPath(pathname) {
  * @returns {PageSeo | undefined}
  */
 export function getPageSeo(pathname) {
-  return PAGE_SEO[normalizePublicPath(pathname)]
+  const path = normalizePublicPath(pathname)
+  const seo = PAGE_SEO[path]
+  if (!seo) return undefined
+  const image = SOCIAL_IMAGES[path]
+  return {
+    ...seo,
+    robots: seo.robots || (image?.indexable === false ? 'noindex, follow' : 'index, follow, max-image-preview:large'),
+    ogImage: image ? `${SITE_URL}/assets/seo/${image.slug}.jpg` : DEFAULT_OG_IMAGE,
+    ogImageAlt: image?.alt || '',
+  }
 }
 
 /**
@@ -204,6 +211,13 @@ function buildStructuredData(seo, pathname) {
     name: seo.title,
     description: seo.description,
     isPartOf: { '@id': `${SITE_URL}/#website` },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      contentUrl: seo.ogImage || DEFAULT_OG_IMAGE,
+      width: 1200,
+      height: 630,
+      caption: seo.ogImageAlt || '',
+    },
     about: { '@id': `${SITE_URL}/#organization` },
     inLanguage: 'en-ZA',
   })
@@ -259,7 +273,7 @@ export function injectPublicSeo(html, pathname) {
   const ogType = seo.ogType || 'website'
 
   let out = html
-    .replace(/<!-- impelo-seo-start -->[\s\S]*?<!-- impelo-seo-end -->/g, '')
+    .replace(/<!-- impelo-seo-start -->[\s\S]*?<!-- impelo-seo-end -->\r?\n?/g, '')
     .replace(/<link rel="(?:icon|shortcut icon|apple-touch-icon)"[^>]*>\s*/gi, '')
     .replace(/<title>.*?<\/title>/i, `<title>${escapeHtml(seo.title)}</title>`)
     .replace(
@@ -283,11 +297,16 @@ export function injectPublicSeo(html, pathname) {
 <meta property="og:url" content="${escapeHtml(url)}">
 <meta property="og:type" content="${escapeHtml(ogType)}">
 <meta property="og:locale" content="en_ZA">
-<meta property="og:image" content="${escapeHtml(DEFAULT_OG_IMAGE)}">
+<meta property="og:image" content="${escapeHtml(seo.ogImage || DEFAULT_OG_IMAGE)}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${escapeHtml(seo.ogImageAlt || '')}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeHtml(seo.title)}">
 <meta name="twitter:description" content="${escapeHtml(seo.description)}">
-<meta name="twitter:image" content="${escapeHtml(DEFAULT_OG_IMAGE)}">
+<meta name="twitter:image" content="${escapeHtml(seo.ogImage || DEFAULT_OG_IMAGE)}">
+<meta name="twitter:image:alt" content="${escapeHtml(seo.ogImageAlt || '')}">
 ${buildStructuredData(seo, pathname)}
 <!-- impelo-seo-end -->`
 
