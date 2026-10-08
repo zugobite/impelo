@@ -30,20 +30,28 @@
 .public-prototype .pub-header nav a[aria-current=page]{color:#1d3c26;font-weight:600;text-decoration:none}
 .public-prototype .pub-header nav a:hover{color:#ad583e}
 .public-prototype .menu-actions{margin-left:auto}
-.public-prototype .menu-actions :is(a.btn.header-login,a.header-login,[data-slot=button].header-login){
-  background:transparent;color:#1d3c26;border-color:transparent;box-shadow:none;filter:none;
+/* Header auth uses legacy .btn (not platform data-slot); parity revert must not flatten these. */
+html body[data-component-parity] .public-prototype .menu-actions a.btn{
+  box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:13px 21px;border:1px solid transparent;border-radius:7px;
+  font-size:.86rem;font-weight:600;line-height:1.4;text-decoration:none;white-space:nowrap;cursor:pointer;
 }
-.public-prototype .menu-actions :is(a.btn.header-login,a.header-login,[data-slot=button].header-login):hover{background:transparent;color:#ad583e}
-.public-prototype .pub-header.is-scrolled .menu-actions :is(a.btn.header-login,[data-slot=button].header-login),
-.public-prototype .pub-header.is-scrolled .menu-actions :is(a.btn.header-login,[data-slot=button].header-login):hover{
-  background-color:#fff;background:#fff;color:#1d3c26;border-color:transparent;box-shadow:none;filter:none;
+.public-prototype .menu-actions a.btn.header-login{
+  background:transparent;color:#1d3c26;border-color:#9cafa2;box-shadow:none;filter:none;
 }
-.public-prototype .menu-actions :is(a.btn.menu-register,.menu-register[data-slot=button]){
+.public-prototype .menu-actions a.btn.header-login:hover{background:transparent;color:#ad583e;border-color:#ad583e}
+.public-prototype .pub-header.is-scrolled .menu-actions a.btn.header-login,
+.public-prototype .pub-header.is-scrolled .menu-actions a.btn.header-login:hover{
+  background-color:#fff;background:#fff;color:#1d3c26;border-color:#dce4d9;box-shadow:none;filter:none;
+}
+.public-prototype .menu-actions a.btn.menu-register{
   background:#c49a47;color:#1d3c26;border-color:transparent;box-shadow:none;
 }
-.public-prototype .menu-actions :is(a.btn.menu-register,.menu-register[data-slot=button]):hover{background:#ad583e;color:#fff}
-.public-prototype .pub-header :is(button,a,[data-slot=button]){box-shadow:none}
-.public-prototype .pub-header :is(button,a,[data-slot=button]):focus-visible{outline:2px solid var(--brand-forest);outline-offset:2px}
+.public-prototype .menu-actions a.btn.menu-register:hover{background:#ad583e;color:#fff;border-color:transparent}
+.public-prototype .pub-header .menu-actions a.btn{box-shadow:none}
+.public-prototype .pub-header .menu-actions a.btn:focus-visible{outline:2px solid var(--brand-forest);outline-offset:2px}
+.public-prototype .pub-header :is(button,a:not(.btn)){box-shadow:none}
+.public-prototype .pub-header :is(button,a:not(.btn),[data-slot=button]:not(.btn)):focus-visible{outline:2px solid var(--brand-forest);outline-offset:2px}
 .public-prototype[data-public-page=home] main{margin-top:-72px}
 .public-prototype[data-public-page=home] .hero-copy{padding-top:calc(72px + clamp(36px,5svh,64px))}
 @media(max-width:800px){
@@ -198,12 +206,12 @@ body.low-data :is(.page-intro-art,.practice-cta-art,.testimonial-avatar){display
     display:grid;grid-column:1 / -1;grid-row:3;grid-template-columns:1fr 1fr;
     gap:8px;width:100%;margin:28px 0 0;
   }
-  .public-prototype.menu-open :is(a.header-login,.header-login),
-  .public-prototype.menu-open :is(a.header-login,.header-login):hover{background-color:#fff;background:#fff;color:#1d3c26;box-shadow:none;filter:none}
+  .public-prototype.menu-open .menu-actions a.btn{width:100%;min-height:48px}
+  .public-prototype.menu-open .menu-actions a.btn.header-login,
+  .public-prototype.menu-open .menu-actions a.btn.header-login:hover{background-color:#fff;background:#fff;color:#1d3c26;border-color:#dce4d9;box-shadow:none;filter:none}
   .public-prototype .menu-toggle[data-slot=button],
   .public-prototype .menu-toggle[data-slot=button]:hover,
   .public-prototype .menu-toggle[data-slot=button][aria-expanded=true]{background:transparent;border-color:transparent;box-shadow:none}
-  .public-prototype.menu-open .menu-actions [data-slot=button]{width:100%}
   .public-prototype.menu-open .pub-header,
   .public-prototype.menu-open .pub-header .brand,
   .public-prototype.menu-open .menu-toggle{color:#1d3c26}
