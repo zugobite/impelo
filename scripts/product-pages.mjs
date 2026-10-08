@@ -34,14 +34,12 @@ export const downloadContent = `<main id="main" class="download-page product-pag
     <figure class="page-intro-art"><img src="/assets/how-header.png" alt="" width="1536" height="1024" fetchpriority="high"></figure><div class="page-intro-wash" aria-hidden="true"></div>
     <div class="page-intro-inner product-hero-copy">
       <p class="eyebrow">Impelo on every device</p>
-      <h1>A clearer view.<br><em>Wherever you are.</em></h1>
-      <p class="product-lead">Your phone between visits. Your tablet at home. Your desktop for the bigger picture. One familiar place to find your next step.</p>
-      <a class="btn" href="#platforms">Explore the apps ${actionArrow}</a>
-      <p class="product-availability"><span class="pixel-status" aria-hidden="true"></span> Mobile and desktop apps Coming Soon</p>
+      <h1>A clearer view. <em>Wherever you are.</em></h1>
+      <p class="lead">Whether you are using a phone, tablet or desktop, find a familiar place for appointment details and your next step. Explore the planned Impelo apps and platform previews.</p>
     </div>
   </section>
   <div class="product-strip" aria-label="App availability">
-    <span><b>Mobile</b> Android · iPhone · iPad</span><span><b>Desktop</b> Windows · macOS</span><span><span class="pixel-status" aria-hidden="true"></span> Coming Soon</span>
+    <span><b>Mobile</b> Android · iPhone · iPad</span><span><b>Desktop</b> Windows · macOS</span><span><span class="pixel-status" aria-hidden="true"></span> Coming Soon</span><a class="btn" href="#platforms">Explore the apps ${actionArrow}</a>
   </div>
   <section class="download-platforms product-section" id="platforms">
     <div class="product-section-heading"><div><p class="eyebrow">Choose your screen</p><h2>Made to fit<br><em>your day.</em></h2></div><p>Explore the platform on the devices you already use. Each preview below shows the actual Impelo interface.</p></div>
@@ -88,8 +86,9 @@ const pricingComparison = `<section class="pricing-comparison product-section" i
 export const pricingContent = `<main id="main" class="pricing-page product-page" lang="en">
   <section class="page-intro scenic-intro intro-pricing product-hero pricing-hero">
     <figure class="page-intro-art"><img src="/assets/pricing-header.png" alt="" width="1536" height="1024" fetchpriority="high"></figure><div class="page-intro-wash" aria-hidden="true"></div>
-    <div class="page-intro-inner product-hero-copy"><p class="eyebrow">A plan for your practice</p><h1>Room for care.<br><em>Room to grow.</em></h1><p class="product-lead">Start with the people and places that make your practice yours. Find the right balance of everyday tools, team coordination and support.</p><div class="product-actions"><a class="btn" href="#pricing">Explore plans ${actionArrow}</a><a class="product-text-link" href="#compare-plans">Compare every feature</a></div><p class="product-availability">Proposed packages · Patient access stays R0</p></div>
+    <div class="page-intro-inner product-hero-copy"><p class="eyebrow">A plan for your practice</p><h1>Room for care. <em>Room to grow.</em></h1><p class="lead">Whether you are starting a smaller practice, growing a team or connecting clinics, choose the package that fits your people. Explore the proposed plans, features and limits.</p></div>
   </section>
+  <div class="product-intro-actions"><div class="product-actions"><a class="btn" href="#pricing">Explore plans ${actionArrow}</a><a class="product-text-link" href="#compare-plans">Compare every feature</a></div><p class="product-availability">Proposed packages · Patient access stays R0</p></div>
   <section class="product-section pricing-packages" id="pricing">
     <div class="product-section-heading"><div><p class="eyebrow">Start here. Grow together.</p><h2>Your team.<br><em>Your next chapter.</em></h2></div><p>Three proposed practice packages. Prices are illustrative, in ZAR, with VAT assumed included. No live subscription is offered.</p></div>
     <div class="pricing-toolbar"><div class="billing-controls"><div class="billing-picker" aria-label="Example billing period"><button type="button" class="tab" data-billing="monthly" aria-pressed="true" data-t="monthly">Monthly</button><button type="button" class="tab" data-billing="annual" aria-pressed="false" data-t="annual">Annual</button></div><span class="billing-saving">10% less annually</span></div><a class="product-text-link" href="#compare-plans">Compare features & limits ↓</a></div>
