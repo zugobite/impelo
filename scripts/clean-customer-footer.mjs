@@ -70,7 +70,7 @@ for (const [filename, page] of Object.entries(companyPages)) {
 
 const downloadPage = template
   .replace(/<title>.*?<\/title>/, '<title>Download Impelo — Mobile & Desktop Apps</title>')
-  .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="Explore the planned Impelo apps for Android, iOS, Windows and macOS. All downloads are coming soon.">')
+  .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="Explore the planned Impelo apps for Android, iOS, Windows and macOS. All downloads are Coming Soon.">')
   .replace('</head>', '<link rel="stylesheet" href="/product-pages.css"><link rel="stylesheet" href="/download.css"></head>')
   .replace(/data-public-page="[^"]*"/, 'data-public-page="download"')
   .replace(/<main id="main">.*?<\/main>/s, downloadContent)

@@ -31,7 +31,7 @@ export const downloadContent = `<main id="main" class="download-page product-pag
       <h1>A clearer view.<br><em>Wherever you are.</em></h1>
       <p class="product-lead">Your phone between visits. Your tablet at home. Your desktop for the bigger picture. One familiar place to find your next step.</p>
       <a class="btn" href="#platforms">Explore the apps ${actionArrow}</a>
-      <p class="product-availability"><span class="pixel-status" aria-hidden="true"></span> Mobile and desktop apps coming soon</p>
+      <p class="product-availability"><span class="pixel-status" aria-hidden="true"></span> Mobile and desktop apps Coming Soon</p>
     </div>
     <div class="product-device-scene" aria-label="Real Impelo screens in pixel-art device frames">
       <span class="scene-tag" aria-hidden="true">One platform. Every screen.</span>
@@ -40,15 +40,15 @@ export const downloadContent = `<main id="main" class="download-page product-pag
     </div>
   </section>
   <div class="product-strip" aria-label="App availability">
-    <span><b>Mobile</b> Android · iPhone · iPad</span><span><b>Desktop</b> Windows · macOS</span><span><span class="pixel-status" aria-hidden="true"></span> Coming soon</span>
+    <span><b>Mobile</b> Android · iPhone · iPad</span><span><b>Desktop</b> Windows · macOS</span><span><span class="pixel-status" aria-hidden="true"></span> Coming Soon</span>
   </div>
   <section class="download-platforms product-section" id="platforms">
     <div class="product-section-heading"><div><p class="eyebrow">Choose your screen</p><h2>Made to fit<br><em>your day.</em></h2></div><p>Explore the platform on the devices you already use. Each preview below shows the actual Impelo interface.</p></div>
     <div class="download-grid">${platformCards.map(p => `<article class="download-card">
-      <div class="download-card-top"><span class="product-index">${p.number} / ${p.label}</span><span class="availability-pill">Coming soon</span></div>
+      <div class="download-card-top"><span class="product-index">${p.number} / ${p.label}</span><span class="availability-pill">Coming Soon</span></div>
       <div class="download-card-copy"><p class="platform-kicker">${p.category}</p><h3>${p.name}</h3><p>${p.copy}</p></div>
       <div class="device-stage device-stage-${p.stage}">${p.art}</div>
-      <div class="download-card-bottom"><span>${p.store}</span><button class="btn" type="button" disabled aria-disabled="true" aria-label="${p.name} app coming soon">Coming soon ${actionArrow}</button></div>
+      <div class="download-card-bottom"><span>${p.store}</span><button class="btn" type="button" disabled aria-disabled="true" aria-label="${p.name} app Coming Soon">Coming Soon ${actionArrow}</button></div>
     </article>`).join('')}</div>
   </section>
   <section class="product-cta"><p class="eyebrow">The next step starts here</p><h2>Get to know <em>Impelo.</em></h2><p>Explore the visit experience or talk to us about the apps and early access for your practice.</p><div class="product-actions"><a class="btn cream" href="/how-it-works/">Try the experience ${actionArrow}</a><a class="product-text-link" href="/contact/?topic=practice">Ask about app availability</a></div></section>
@@ -67,7 +67,7 @@ const groups = [
   {name:'Everyday visits', rows:[['Check-in & visit-stage queue',yes,yes,yes],['Appointment calendar & visit details',yes,yes,yes],['Patient documents & published visits',yes,yes,yes],['Multiple practitioner schedules',no,yes,yes],['Separate queues & team handoffs',no,yes,yes]]},
   {name:'Reporting & responsible access', rows:[['Operational reporting','Daily exports','Filtered reports','Combined multi-site reports'],['Role permissions & consent controls',yes,yes,yes],['Audit history & assisted-access options',yes,yes,yes],['Location-specific roles & queues',no,no,yes],['Consent-managed record requests',no,no,yes]]},
   {name:'Setup & support', rows:[['Onboarding','Self-guided setup','Guided onboarding','Phased rollout'],['Support','Email support','Priority support','Named support contact']]},
-  {name:'Apps & additional services', rows:[['Mobile & desktop apps','Coming soon','Coming soon','Coming soon'],['SMS & WhatsApp usage','Scoped separately','Scoped separately','Scoped separately'],['Migration, integrations & extra capacity','Scoped separately','Scoped separately','Scoped separately']]},
+  {name:'Apps & additional services', rows:[['Mobile & desktop apps','Coming Soon','Coming Soon','Coming Soon'],['SMS & WhatsApp usage','Scoped separately','Scoped separately','Scoped separately'],['Migration, integrations & extra capacity','Scoped separately','Scoped separately','Scoped separately']]},
 ]
 
 const pricingComparison = `<section class="pricing-comparison product-section" id="compare-plans">
@@ -108,7 +108,7 @@ export const pricingContent = `<main id="main" class="pricing-page product-page"
     <details><summary>What counts as a staff account?</summary><p>Clinicians, reception staff and administrators count towards the staff allowance. Patient accounts do not. Clinic Network’s 40 staff accounts cover all included locations together.</p></details>
     <details><summary>What if we need more capacity?</summary><p>Discuss additional locations, staff, usage and rollout support with us. Extra capacity, complex migration and custom integrations would be scoped separately.</p></details>
     <details><summary>What is included in the usage allowance?</summary><p>Visit and document allowances are still to be confirmed. SMS and WhatsApp usage would be scoped separately. These example packages do not set an unlimited allowance.</p></details>
-    <details><summary>Are mobile and desktop apps available?</summary><p>Android, iOS, Windows and macOS apps are coming soon. <a href="/download/">See the app previews and planned platforms.</a></p></details>
+    <details><summary>Are mobile and desktop apps available?</summary><p>Android, iOS, Windows and macOS apps are Coming Soon. <a href="/download/">See the app previews and planned platforms.</a></p></details>
     <details><summary>How does annual billing work?</summary><p>The annual example reduces the monthly equivalent by 10%. The full yearly amount would be paid upfront. Select Annual above to see both the monthly equivalent and yearly total.</p></details>
   </div></section>
   <section class="product-cta"><p class="eyebrow">Built around your people</p><h2>Let’s find<br><em>your starting point.</em></h2><p>Tell us about your practice, your team and the way you work. We’ll explore the right next step together.</p><a class="btn cream" href="/contact/?topic=practice">Discuss your practice ${actionArrow}</a></section>
