@@ -45,3 +45,7 @@ html body .refined-footer.scenic-footer .footer-bottom{margin-top:0;padding-top:
 
 html body .refined-footer.scenic-footer .footer-bottom p{margin:0;line-height:24px}
 html body .refined-footer.scenic-footer .footer-bottom a{line-height:24px}
+
+/* Home band sections use slate instead of white/cream page backgrounds. */
+html body.public-prototype[data-public-page=home] main{background:var(--brand-surface-slate,#f1f5f9)}
+html body.public-prototype[data-public-page=home] :is(.hero,.clinic-logo-strip,#platform,.care-story,.evidence-section){background:var(--brand-surface-slate,#f1f5f9)}
