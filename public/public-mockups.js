@@ -13,7 +13,6 @@
   document.querySelectorAll('[data-device].tab').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.device===device)));
   image.dataset.src='/assets/platform-screens/'+screen.file;image.alt=screen.alt;
   if(!document.body.classList.contains('low-data')){image.src=image.dataset.src;image.hidden=false;}
-  document.querySelector('#screen-device-label').textContent=device[0].toUpperCase()+device.slice(1)+' · '+screen.size;
   document.querySelector('#screen-description').textContent=screen.description;link.href=image.dataset.src;
  }
  document.querySelectorAll('.device-tabs [data-device]').forEach(b=>b.addEventListener('click',()=>select(b.dataset.device)));

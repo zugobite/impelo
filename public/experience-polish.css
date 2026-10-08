@@ -9,26 +9,24 @@
 .public-prototype .evidence-card .evidence-count{font-size:2rem}
 .public-prototype .testimonial-card blockquote{font-size:20px;line-height:1.65}
 .public-prototype .testimonial-section{background:#f8fafc}
-.public-prototype .platform-gallery{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:64px;align-items:center;width:100%;max-width:none;padding-inline:var(--page-edge);background:#334155;color:#f8fafc}
+.platform-gallery{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:64px;align-items:center;background:#334155}
 .platform-gallery-copy{min-width:0}
-.public-prototype .platform-gallery-copy :is(h2,.eyebrow){color:#f8fafc}
+.platform-gallery-copy :is(h2,.eyebrow){color:#f8fafc}
 .platform-gallery-copy h2{font-size:clamp(1.6rem,2.2vw,2rem);line-height:1.3;font-weight:500;letter-spacing:-.025em;margin:16px 0 24px}
-.public-prototype .platform-gallery-copy>p:not(.eyebrow),.public-prototype .platform-gallery-copy .screen-description,.public-prototype .platform-gallery-copy .screen-provenance,.public-prototype .platform-gallery-copy .small-note{color:#cbd5e1}
-.platform-gallery-copy>p:not(.eyebrow){font-size:16px;line-height:1.8}
+.platform-gallery-copy>p:not(.eyebrow){font-size:16px;line-height:1.8;color:#cbd5e1}
 .device-tabs{margin:28px 0 20px}
-.platform-gallery-copy .screen-description{font-size:14px;line-height:1.7;min-height:48px}
-.platform-gallery-copy .screen-provenance{font-size:12px;line-height:1.7;margin-top:24px;max-width:300px}
-.public-prototype .platform-gallery-copy .text-link{color:#eaf1ec;font-size:14px;line-height:1.6;text-decoration:underline;text-underline-offset:4px}
-.public-prototype .platform-gallery .device-tabs{display:flex;gap:6px;background:#1e293b;border:1px solid #475569;border-radius:9px;padding:5px;width:fit-content}
-.public-prototype .platform-gallery .device-tabs .tab{color:#e2e8f0}
-.public-prototype .platform-gallery .device-tabs .tab[aria-pressed=true]{background:#f8fafc;color:#334155}
+.platform-gallery-copy .screen-description{font-size:14px;line-height:1.7;min-height:48px;color:#cbd5e1}
+.platform-gallery-copy .screen-provenance{font-size:12px;line-height:1.7;margin-top:24px;max-width:300px;color:#94a3b8}
+.platform-gallery-copy .small-note{color:#94a3b8}
+.platform-gallery-copy .text-link{color:#eaf1ec;font-size:14px;line-height:1.6;text-decoration:underline;text-underline-offset:4px}
 .device-stage{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:540px;margin:0;padding:32px;background:linear-gradient(135deg,#eaf1ec,#f1f5f9 70%);border-radius:16px}
 .screen-frame{width:100%;max-width:760px;border:1px solid #dbe3e8;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 12px 32px #1d3c2610}
-.screen-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;color:#475569;font-size:12px;line-height:1.5}
-.screen-frame img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+.platform-gallery .screen-frame{padding:0;overflow:hidden;height:528px}
+.platform-gallery .screen-frame img{display:block;width:100%;height:100%;object-position:top center}
+.platform-gallery .device-stage[data-device=desktop] .screen-frame img{object-fit:contain}
+.platform-gallery .device-stage[data-device=tablet] .screen-frame img,.platform-gallery .device-stage[data-device=mobile] .screen-frame img{object-fit:cover}
 .device-stage[data-device=tablet] .screen-frame{max-width:350px;border:6px solid #334155;border-radius:16px}
 .device-stage[data-device=mobile] .screen-frame{max-width:230px;border:6px solid #334155;border-radius:22px}
-.device-stage[data-device=mobile] .screen-toolbar{font-size:12px;padding:10px 12px}.device-stage[data-device=mobile] .screen-toolbar>span:first-child{display:none}
 .device-stage .art-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;font-size:16px;line-height:1.7;border-radius:16px;background:#f1f5f9;color:#475569}
 body.low-data .device-stage .screen-frame{display:none}
 .public-prototype .care-story{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:72px;padding:96px var(--page-edge);background:#fff;color:#1d3c26}
@@ -59,7 +57,7 @@ body.low-data .care-icon,body.low-data .clinic-care-legend img{display:none}
 .care-icon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:32px}.care-icon-item{display:flex;align-items:center;gap:20px;min-width:0}.care-icon-item img{width:80px;height:80px;object-fit:contain;flex:none}.care-icon-item strong{display:block;font-size:16px;font-weight:500;margin-bottom:8px}.care-icon-item a{font-size:14px;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:1000px){.platform-gallery{grid-template-columns:1fr;gap:40px}.platform-gallery-copy{max-width:720px}.device-stage{min-height:540px}.planning-steps{gap:32px}.public-prototype .care-story{gap:40px}}
 @media(max-width:800px){.public-prototype .section{padding-block:64px}.public-prototype .care-story{grid-template-columns:1fr;padding:64px var(--page-gutter);gap:32px}.public-prototype .care-story-art{grid-column:1;grid-row:2;aspect-ratio:3/2;max-width:560px;width:100%}.planning-steps{grid-template-columns:1fr;gap:32px}.planning-contact{flex-direction:column;align-items:flex-start}.sticker-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px}.care-icon-grid{grid-template-columns:1fr;gap:24px}.care-roles li{grid-template-columns:100px minmax(0,1fr);gap:12px}}
-@media(max-width:480px){.device-stage{min-height:510px;padding:20px}.device-stage[data-device=desktop]{min-height:260px}.device-stage[data-device=tablet]{min-height:460px}.screen-toolbar{padding:8px;font-size:12px}.screen-toolbar>span:first-child{display:none}.sticker-grid{gap:28px 20px}.sticker-item h3{font-size:16px}.care-icon-item img{width:64px;height:64px}.public-prototype .section-heading{margin-bottom:32px}.public-prototype .care-story-art{aspect-ratio:1}.device-tabs [data-slot=tabs-list]{max-width:100%}}
+@media(max-width:480px){.device-stage{min-height:510px;padding:20px}.platform-gallery .device-stage,.platform-gallery .device-stage[data-device=desktop],.platform-gallery .device-stage[data-device=tablet]{min-height:0;padding:20px}.sticker-grid{gap:28px 20px}.sticker-item h3{font-size:16px}.care-icon-item img{width:64px;height:64px}.public-prototype .section-heading{margin-bottom:32px}.public-prototype .care-story-art{aspect-ratio:1}.device-tabs [data-slot=tabs-list]{max-width:100%}}
 body.large-text .screen-description,body.large-text .care-roles li,body.large-text .planning-contact>p,body.large-text .sticker-item p{font-size:1em}
 
 /* A guided workspace with quiet controls and one clear preview. */
