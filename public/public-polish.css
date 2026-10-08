@@ -1,7 +1,7 @@
 /* Green and slate public-page composition. Interface primitives use the shared platform theme. */
 :root{--brand-surface-green:#eaf1ec;--brand-surface-slate:#f1f5f9;--brand-accent-green:#3b784c;--brand-slate:#334155;--brand-paper:#f8fafc}
 .public-prototype{background:var(--brand-paper);--prose-muted:#475569}
-.public-prototype .proto-bar{--foreground:#fff;--muted-foreground:#e6ede2;--input:#b3c3a9;--accent:#2c5b39;--muted:#2c5b39;--ring:#eaf1ec;--primary:#fff}
+.public-prototype .proto-bar{display:none}
 .public-prototype .proto-bar [data-slot=native-select] option{background:#fff;color:#1d3c26}
 .public-prototype .proto-bar [data-slot=button]:hover{color:#fff;background:#2c5b39}
 .public-prototype .pub-header{background:#f8fafc;border-bottom-color:#dbe3e8}
