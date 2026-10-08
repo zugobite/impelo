@@ -5,9 +5,8 @@ html body.public-prototype .pricing-page .pricing-packages { background:var(--br
 html body.public-prototype .pricing-page .billing-picker { margin:0; }
 .billing-saving { color:var(--prose-muted); font-size:10px; letter-spacing:.02em; }
 html body.public-prototype .pricing-page .billing-note { max-width:760px; font-size:12px; line-height:1.7; color:var(--prose-muted); margin:18px 0 30px; min-height:42px; }
-.pricing-tier-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:stretch; }
-html body.public-prototype .pricing-page .pricing-tier { display:flex; flex-direction:column; padding:28px; background:var(--card); border:1px solid var(--border); border-radius:4px; min-width:0; gap:0; box-shadow:5px 5px 0 var(--brand-sage); color:var(--brand-forest); }
-html body.public-prototype .pricing-page .pricing-tier.featured { background:var(--brand-surface-green); border-color:var(--brand-accent-green); box-shadow:5px 5px 0 var(--brand-sage); }
+.pricing-tier-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; align-items:stretch; }
+html body.public-prototype .pricing-page .pricing-tier-body { display:flex; flex-direction:column; flex:1; }
 .tier-label { display:flex; gap:14px; align-items:center; font-size:11px; color:var(--prose-muted); margin-bottom:24px; }
 .tier-label .product-index { color:var(--prose-muted); font-size:12px; }
 html body.public-prototype .pricing-page .pricing-tier h3 { font:500 clamp(24px,2.3vw,30px)/1.2 var(--font-sans); min-height:76px; letter-spacing:-.035em; }
@@ -20,11 +19,9 @@ html body.public-prototype .pricing-page .pricing-tier .plan-price { display:fle
 .tier-capacity li { font-size:12px; line-height:1.55; font-weight:500; color:var(--brand-slate); display:flex; align-items:center; gap:10px; }
 .tier-capacity li::before { content:''; width:6px; height:6px; background:var(--brand-sage); flex-shrink:0; }
 .package-list-label { font:10px var(--font-mono); text-transform:uppercase; letter-spacing:.05em; color:var(--prose-muted); margin-bottom:16px; }
-.tier-inclusions { list-style:none; margin:0 0 30px; padding:0; display:grid; gap:13px; flex:1; }
+.tier-inclusions { list-style:none; margin:0 0 8px; padding:0; display:grid; gap:13px; }
 .tier-inclusions li { display:flex; align-items:start; gap:10px; color:var(--brand-slate); font-size:13px; line-height:1.6; }
 .tier-inclusions li>span { color:var(--brand-accent-green); flex-shrink:0; font-weight:700; }
-/* Card placement only; variants, sizing and interaction states are shared. */
-.pricing-tier [data-slot=button] { width:100%; margin-top:auto; }
 .pricing-disclosure { font-size:11px; line-height:1.8; color:var(--prose-muted); margin-top:24px; max-width:850px; }
 html body.public-prototype .pricing-page .patient-access-band { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:80px; padding-block:58px; background:var(--brand-surface-green); border-block:1px solid var(--border); border-radius:0; align-items:center; }
 .patient-access-value>.eyebrow { font-size:10px; }
@@ -42,6 +39,6 @@ html body.public-prototype .pricing-page .pricing-research { background:var(--br
 .pricing-source-grid h3 { font-size:17px; margin-bottom:12px; }
 .pricing-research p { font-size:13px; line-height:1.8; color:var(--prose-muted); }
 body.public-prototype.large-text .pricing-page :is(.tier-inclusions li,.plan-desc,.pricing-faqs p) { font-size:1rem!important; }
-@media(max-width:1100px) { html body.public-prototype .pricing-page .pricing-tier { padding:24px 20px; } .pricing-tier-grid { gap:16px; } .pricing-questions { gap:40px; } }
-@media(max-width:880px) { .pricing-tier-grid { grid-template-columns:1fr; gap:24px; } html body.public-prototype .pricing-page .pricing-tier { padding:28px; } html body.public-prototype .pricing-page .pricing-tier h3 { min-height:0; font-size:34px; } html body.public-prototype .pricing-page .pricing-tier .plan-desc { min-height:0; } .tier-capacity { min-height:0; } .pricing-tier-grid .plan-price { font-size:44px!important; } }
+@media(max-width:1100px) { .pricing-questions { gap:40px; } }
+@media(max-width:880px) { .pricing-tier-grid { grid-template-columns:1fr; } html body.public-prototype .pricing-page .pricing-tier h3 { min-height:0; font-size:30px; } html body.public-prototype .pricing-page .pricing-tier .plan-desc { min-height:0; } .tier-capacity { min-height:0; } .pricing-tier-grid .plan-price { font-size:44px!important; } }
 @media(max-width:760px) { html body.public-prototype .pricing-page .pricing-packages { padding-block:56px; } .pricing-toolbar { gap:20px; } .billing-controls { gap:12px; } html body.public-prototype .pricing-page .patient-access-band { grid-template-columns:1fr; gap:32px; padding-block:48px; } .patient-access-value>span { font-size:72px; } .pricing-questions { grid-template-columns:1fr; gap:24px; } .pricing-source-grid { grid-template-columns:1fr; } }

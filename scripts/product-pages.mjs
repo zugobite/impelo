@@ -1,5 +1,10 @@
 const screenRoot = '/assets/platform-screens'
 const actionArrow = '<svg class="ico" data-icon="inline-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow-right"/></svg>'
+// Same utility classes as the shared platform Card, Header, Content and Footer.
+const cardSurface = 'ring-foreground/10 bg-card text-card-foreground overflow-hidden rounded-xl text-sm ring-1'
+const cardRoot = `${cardSurface} gap-4 py-4 has-data-[slot=card-footer]:pb-0 group/card flex flex-col min-w-0`
+const cardHeader = 'gap-1 rounded-t-xl px-4 group/card-header grid auto-rows-min items-start'
+const cardFooter = 'bg-muted/50 rounded-b-xl border-t p-4 flex items-center justify-between gap-3 mt-auto'
 
 // Screens remain original image files. Only the surrounding device is illustrated.
 export function device(kind, screen, alt, extraClass = '') {
@@ -25,18 +30,14 @@ const platformCards = [
 ]
 
 export const downloadContent = `<main id="main" class="download-page product-page" lang="en">
-  <section class="product-hero download-hero">
-    <div class="product-hero-copy">
+  <section class="page-intro scenic-intro intro-how product-hero download-hero">
+    <figure class="page-intro-art"><img src="/assets/how-header.png" alt="" width="1536" height="1024" fetchpriority="high"></figure><div class="page-intro-wash" aria-hidden="true"></div>
+    <div class="page-intro-inner product-hero-copy">
       <p class="eyebrow">Impelo on every device</p>
       <h1>A clearer view.<br><em>Wherever you are.</em></h1>
       <p class="product-lead">Your phone between visits. Your tablet at home. Your desktop for the bigger picture. One familiar place to find your next step.</p>
       <a class="btn" href="#platforms">Explore the apps ${actionArrow}</a>
       <p class="product-availability"><span class="pixel-status" aria-hidden="true"></span> Mobile and desktop apps Coming Soon</p>
-    </div>
-    <div class="product-device-scene" aria-label="Real Impelo screens in pixel-art device frames">
-      <span class="scene-tag" aria-hidden="true">One platform. Every screen.</span>
-      ${desktop('hero-desktop')}${phone('hero-phone')}
-      <p class="device-caption">A look inside Impelo</p>
     </div>
   </section>
   <div class="product-strip" aria-label="App availability">
@@ -44,11 +45,12 @@ export const downloadContent = `<main id="main" class="download-page product-pag
   </div>
   <section class="download-platforms product-section" id="platforms">
     <div class="product-section-heading"><div><p class="eyebrow">Choose your screen</p><h2>Made to fit<br><em>your day.</em></h2></div><p>Explore the platform on the devices you already use. Each preview below shows the actual Impelo interface.</p></div>
-    <div class="download-grid">${platformCards.map(p => `<article class="download-card">
+    <div class="download-grid">${platformCards.map(p => `<article class="download-card ${cardRoot}" data-slot="card" data-size="default">
+      <div data-slot="card-header" class="${cardHeader}">
       <div class="download-card-top"><span class="product-index">${p.number} / ${p.label}</span><span class="availability-pill">Coming Soon</span></div>
       <div class="download-card-copy"><p class="platform-kicker">${p.category}</p><h3>${p.name}</h3><p>${p.copy}</p></div>
-      <div class="device-stage device-stage-${p.stage}">${p.art}</div>
-      <div class="download-card-bottom"><span>${p.store}</span><button class="btn" type="button" disabled aria-disabled="true" aria-label="${p.name} app Coming Soon">Coming Soon ${actionArrow}</button></div>
+      </div><div data-slot="card-content" class="px-4"><div class="device-stage device-stage-${p.stage}">${p.art}</div></div>
+      <div class="download-card-bottom ${cardFooter}" data-slot="card-footer"><span>${p.store}</span><button class="btn" type="button" disabled aria-disabled="true" aria-label="${p.name} app Coming Soon">Coming Soon ${actionArrow}</button></div>
     </article>`).join('')}</div>
   </section>
   <section class="product-cta"><p class="eyebrow">The next step starts here</p><h2>Get to know <em>Impelo.</em></h2><p>Explore the visit experience or talk to us about the apps and early access for your practice.</p><div class="product-actions"><a class="btn cream" href="/how-it-works/">Try the experience ${actionArrow}</a><a class="product-text-link" href="/contact/?topic=practice">Ask about app availability</a></div></section>
@@ -73,7 +75,7 @@ const groups = [
 const pricingComparison = `<section class="pricing-comparison product-section" id="compare-plans">
   <div class="product-section-heading"><div><p class="eyebrow">The details, side by side</p><h2>See what<br><em>each plan unlocks.</em></h2></div><p>People, places, features and support. A clear view of what’s included, what grows with your plan, and what needs a separate conversation.</p></div>
   <p class="comparison-scroll-note">Swipe or use the arrow keys to compare plans →</p>
-  <div class="comparison-table-wrap" tabindex="0" role="region" aria-label="Scrollable Impelo plan comparison">
+  <div class="comparison-table-wrap ${cardSurface}" data-slot="card" tabindex="0" role="region" aria-label="Scrollable Impelo plan comparison">
     <table class="comparison-table"><caption>Proposed Impelo practice features, limits and support by plan</caption>
       <colgroup><col class="comparison-feature-col"><col><col><col></colgroup>
       <thead><tr><th scope="col">Your practice,<br>your priorities.</th>${plans.map(p=>`<th scope="col"${p.key==='team'?' class="featured-column"':''}><span class="comparison-plan-name">${p.name}</span><span class="comparison-price" data-comparison-amount data-monthly-cents="${p.cents}">${p.amount} / month</span><a href="/contact/?topic=${p.topic}&amp;plan=${p.key}" data-comparison-enquiry>Explore plan ↗<span class="sr">: ${p.name}</span></a></th>`).join('')}</tr></thead>
@@ -84,21 +86,23 @@ const pricingComparison = `<section class="pricing-comparison product-section" i
 </section>`
 
 export const pricingContent = `<main id="main" class="pricing-page product-page" lang="en">
-  <section class="product-hero pricing-hero">
-    <div class="product-hero-copy"><p class="eyebrow">A plan for your practice</p><h1>Room for care.<br><em>Room to grow.</em></h1><p class="product-lead">Start with the people and places that make your practice yours. Find the right balance of everyday tools, team coordination and support.</p><div class="product-actions"><a class="btn" href="#pricing">Explore plans ${actionArrow}</a><a class="product-text-link" href="#compare-plans">Compare every feature</a></div><p class="product-availability">Proposed packages · Patient access stays R0</p></div>
-    <div class="product-device-scene pricing-device-scene"><span class="scene-tag" aria-hidden="true">A clearer picture of the day</span>${desktop('hero-desktop')}<p class="device-caption">Inside the Impelo platform</p></div>
+  <section class="page-intro scenic-intro intro-pricing product-hero pricing-hero">
+    <figure class="page-intro-art"><img src="/assets/pricing-header.png" alt="" width="1536" height="1024" fetchpriority="high"></figure><div class="page-intro-wash" aria-hidden="true"></div>
+    <div class="page-intro-inner product-hero-copy"><p class="eyebrow">A plan for your practice</p><h1>Room for care.<br><em>Room to grow.</em></h1><p class="product-lead">Start with the people and places that make your practice yours. Find the right balance of everyday tools, team coordination and support.</p><div class="product-actions"><a class="btn" href="#pricing">Explore plans ${actionArrow}</a><a class="product-text-link" href="#compare-plans">Compare every feature</a></div><p class="product-availability">Proposed packages · Patient access stays R0</p></div>
   </section>
   <section class="product-section pricing-packages" id="pricing">
     <div class="product-section-heading"><div><p class="eyebrow">Start here. Grow together.</p><h2>Your team.<br><em>Your next chapter.</em></h2></div><p>Three proposed practice packages. Prices are illustrative, in ZAR, with VAT assumed included. No live subscription is offered.</p></div>
     <div class="pricing-toolbar"><div class="billing-controls"><div class="billing-picker" aria-label="Example billing period"><button type="button" class="tab" data-billing="monthly" aria-pressed="true" data-t="monthly">Monthly</button><button type="button" class="tab" data-billing="annual" aria-pressed="false" data-t="annual">Annual</button></div><span class="billing-saving">10% less annually</span></div><a class="product-text-link" href="#compare-plans">Compare features & limits ↓</a></div>
     <p id="billing-note" class="billing-note" aria-live="polite">Monthly example: the displayed amount would be billed each month. No payment is taken.</p>
-    <div class="pricing-tier-grid">${plans.map(p=>`<article class="package-plan pricing-tier${p.key==='team'?' featured':''}" data-plan="${p.key}">
+    <div class="pricing-tier-grid">${plans.map(p=>`<article class="package-plan pricing-tier ${cardRoot}${p.key==='team'?' featured':''}" data-slot="card" data-size="default" data-plan="${p.key}">
+      <div data-slot="card-header" class="${cardHeader}">
       <div class="tier-label"><span class="product-index">${p.number}</span><span>${p.label}</span></div>
       <h3>${p.name}</h3><p class="plan-desc">${p.copy}</p>
+      </div><div data-slot="card-content" class="px-4 pricing-tier-body">
       <div class="package-price"><p class="plan-price"><span data-plan-amount data-monthly-cents="${p.cents}">${p.amount}</span><span class="price-period"> / month</span></p><p class="package-billing" data-plan-total>${p.amount} billed monthly</p></div>
       <ul class="tier-capacity" aria-label="Plan limits">${p.scope.map(s=>`<li>${s}</li>`).join('')}</ul>
       <p class="package-list-label">Planned inclusions</p><ul class="tier-inclusions">${p.features.map(f=>`<li><span aria-hidden="true">✓</span>${f}</li>`).join('')}</ul>
-      <a class="btn${p.key==='team'?'':' outline'}" href="/contact/?topic=${p.topic}&amp;plan=${p.key}">${p.link} ${actionArrow}</a>
+      </div><div data-slot="card-footer" class="${cardFooter}"><a class="btn w-full${p.key==='team'?'':' outline'}" href="/contact/?topic=${p.topic}&amp;plan=${p.key}">${p.link} ${actionArrow}</a></div>
     </article>`).join('')}</div>
     <p class="pricing-disclosure">Annual examples apply a proposed 10% reduction, paid for 12 months upfront. Final pricing, tax treatment and terms will be confirmed before launch.</p>
   </section>
