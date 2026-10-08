@@ -1,24 +1,24 @@
-.product-strip { display:flex; justify-content:center; gap:72px; padding:21px 24px; background:#dce4d2; border-block:1px solid #c6d0bb; font-size:12px; color:#516343; }
+.product-strip { display:flex; justify-content:center; gap:72px; padding:21px 24px; background:var(--brand-surface-green); border-block:1px solid var(--border); font-size:12px; color:var(--brand-slate); }
 .product-strip>span { display:flex; align-items:center; gap:12px; }
-.product-strip b { color:#203e2b; font-weight:600; }
+.product-strip b { color:var(--brand-forest); font-weight:600; }
 .download-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px; }
-.download-card { border:1px solid #c9d2bf; border-radius:4px; background:#fcfaf4; min-width:0; overflow:hidden; box-shadow:5px 5px 0 #e1e5d5; display:flex; flex-direction:column; }
+.download-card { border:1px solid var(--border); border-radius:4px; background:var(--card); min-width:0; overflow:hidden; box-shadow:5px 5px 0 var(--brand-sage); display:flex; flex-direction:column; }
 .download-card-top { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:24px 28px 0; }
-.product-index { color:#77856a; }
-.availability-pill { font:10px 'IBM Plex Mono',monospace; letter-spacing:.03em; color:#6c593a; border:1px solid #d8c49b; background:#f3ead5; padding:5px 8px; border-radius:2px; white-space:nowrap; }
+.product-index { color:var(--prose-muted); }
+.availability-pill { font:10px var(--font-mono); letter-spacing:.03em; color:var(--prose-muted); border:1px solid var(--border); background:var(--brand-surface-slate); padding:5px 8px; border-radius:2px; white-space:nowrap; }
 .download-card-copy { padding:27px 28px 18px; }
-.platform-kicker { font-size:12px; color:#788468; }
-html body.public-prototype .download-card h3 { font:400 clamp(28px,2.9vw,40px)/1.15 var(--product-serif); letter-spacing:-.04em; margin:10px 0 16px; }
-.download-card-copy>p:last-child { max-width:420px; min-height:54px; font-size:14px; line-height:1.8; color:#62715a; }
+.platform-kicker { font-size:12px; color:var(--prose-muted); }
+html body.public-prototype .download-card h3 { font:500 clamp(26px,2.4vw,34px)/1.2 var(--font-sans); letter-spacing:-.04em; margin:10px 0 16px; }
+.download-card-copy>p:last-child { max-width:420px; min-height:54px; font-size:14px; line-height:1.8; color:var(--brand-slate); }
 html body.public-prototype .download-page .device-stage { margin:12px 16px 0; padding:26px 24px 30px; position:relative; display:flex; justify-content:center; align-items:center; min-height:400px; flex:1; isolation:isolate; background:none; border:0; border-radius:0; }
-.device-stage::before { content:''; position:absolute; inset:26% 0 0; background:#e7eadc; z-index:-1; clip-path:polygon(0 18%,8% 18%,8% 8%,18% 8%,18% 0,82% 0,82% 8%,92% 8%,92% 18%,100% 18%,100% 100%,0 100%); }
+.device-stage::before { content:''; position:absolute; inset:26% 0 0; background:var(--brand-surface-green); z-index:-1; clip-path:polygon(0 18%,8% 18%,8% 8%,18% 8%,18% 0,82% 0,82% 8%,92% 8%,92% 18%,100% 18%,100% 100%,0 100%); }
 .device-stage-phone .pixel-device { width:150px; }
 .device-stage-pair { align-items:end; gap:14px; }
 .device-stage-pair .pixel-device-tablet { width:210px; }
 .device-stage-pair .pixel-device-phone { width:105px; margin-bottom:-8px; }
 .device-stage-desktop .pixel-device { width:min(100%,470px); }
-.download-card-bottom { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:24px 28px; font-size:12px; color:#6f7b65; }
-html body.public-prototype .download-card button[disabled] { opacity:1; background:#e4e7da; color:#657259; box-shadow:none; border:1px solid #d1d9c7; cursor:default; font-size:12px; min-height:40px; padding:9px 14px; }
+.download-card-bottom { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:24px 28px; font-size:12px; color:var(--prose-muted); }
+html body.public-prototype .download-card button[disabled] { opacity:1; background:var(--brand-surface-slate); color:var(--prose-muted); box-shadow:none; border:1px solid var(--border); cursor:default; font-size:12px; min-height:40px; padding:9px 14px; }
 @media(max-width:1000px) { .product-strip { gap:28px; } .device-stage { padding-inline:12px; } .device-stage-pair .pixel-device-tablet { width:170px; } .device-stage-pair .pixel-device-phone { width:90px; } }
 @media(max-width:760px) {
   .product-strip { flex-wrap:wrap; gap:10px 24px; justify-content:start; font-size:11px; }

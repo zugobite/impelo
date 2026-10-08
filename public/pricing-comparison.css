@@ -1,31 +1,31 @@
-.pricing-comparison { background:#f7f5ed; }
-.comparison-scroll-note { display:none; font:10px 'IBM Plex Mono',monospace; color:#728366; margin:0 0 14px; }
-.comparison-table-wrap { position:relative; overflow:auto; border:1px solid #bccbb0; border-radius:3px; background:#fcfaf4; box-shadow:5px 5px 0 #e1e5d5; -webkit-overflow-scrolling:touch; }
-.comparison-table-wrap:focus-visible { outline:3px solid #9b7c46; outline-offset:5px; }
-.comparison-table { width:100%; min-width:840px; table-layout:fixed; border-collapse:separate; border-spacing:0; color:#405638; font-size:13px; }
+.pricing-comparison { background:var(--brand-paper); }
+.comparison-scroll-note { display:none; font:10px var(--font-mono); color:var(--prose-muted); margin:0 0 14px; }
+.comparison-table-wrap { position:relative; overflow:auto; border:1px solid var(--border); border-radius:3px; background:var(--card); box-shadow:5px 5px 0 var(--brand-sage); -webkit-overflow-scrolling:touch; }
+.comparison-table-wrap:focus-visible { outline:3px solid var(--brand-accent-green); outline-offset:5px; }
+.comparison-table { width:100%; min-width:840px; table-layout:fixed; border-collapse:separate; border-spacing:0; color:var(--brand-slate); font-size:13px; }
 .comparison-table caption { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 .comparison-feature-col { width:34%; }
-.comparison-table th,.comparison-table td { padding:18px 22px; border-bottom:1px solid #dbe1d0; border-right:1px solid #e0e5d7; vertical-align:middle; text-align:left; line-height:1.6; overflow-wrap:anywhere; }
+.comparison-table th,.comparison-table td { padding:18px 22px; border-bottom:1px solid var(--border); border-right:1px solid var(--border); vertical-align:middle; text-align:left; line-height:1.6; overflow-wrap:anywhere; }
 .comparison-table th:last-child,.comparison-table td:last-child { border-right:0; }
-.comparison-table thead th { background:#f1f1e5; padding-block:28px; }
-.comparison-table thead th:first-child { font:400 25px/1.3 var(--product-serif); color:#7c8b6f; letter-spacing:-.02em; }
-.comparison-plan-name { display:block; font:400 21px/1.25 var(--product-serif); color:#203e2b; }
-.comparison-price { display:block; font-size:11px; font-weight:400; color:#6a7b5d; margin-top:12px; }
+.comparison-table thead th { background:var(--brand-surface-green); padding-block:28px; }
+.comparison-table thead th:first-child { font:500 25px/1.3 var(--font-sans); color:var(--prose-muted); letter-spacing:-.02em; }
+.comparison-plan-name { display:block; font:500 21px/1.25 var(--font-sans); color:var(--brand-forest); }
+.comparison-price { display:block; font-size:11px; font-weight:400; color:var(--prose-muted); margin-top:12px; }
 .comparison-table thead a { display:inline-block; margin-top:15px; font-size:11px; font-weight:500; text-underline-offset:4px; }
-.comparison-table .featured-column { background:#e2e9d7; box-shadow:inset 0 4px 0 #62784f; }
-.comparison-table tbody th[scope=row] { font-weight:500; background:#fcfaf4; }
-.comparison-table tbody tr:nth-child(odd):not(.comparison-group) :is(td,th[scope=row]) { background:#f5f5ea; }
-.comparison-table .comparison-group th { padding:13px 22px; font:10px 'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.07em; color:#e9eede; background:#304b2f; border-color:#304b2f; }
-.comparison-check { font-size:20px; font-weight:600; color:#58744b; }
-.comparison-dash { color:#a0ad92; font-size:18px; }
-.comparison-disclosure { font-size:11px; line-height:1.8; margin-top:22px; max-width:850px; color:#718063; }
+.comparison-table .featured-column { background:var(--brand-surface-green); box-shadow:inset 0 4px 0 var(--brand-accent-green); }
+.comparison-table tbody th[scope=row] { font-weight:500; background:var(--card); }
+.comparison-table tbody tr:nth-child(odd):not(.comparison-group) :is(td,th[scope=row]) { background:var(--brand-surface-slate); }
+.comparison-table .comparison-group th { padding:13px 22px; font:10px var(--font-mono); text-transform:uppercase; letter-spacing:.07em; color:var(--brand-sage); background:var(--brand-forest); border-color:var(--brand-forest); }
+.comparison-check { font-size:20px; font-weight:600; color:var(--brand-accent-green); }
+.comparison-dash { color:var(--brand-sage); font-size:18px; }
+.comparison-disclosure { font-size:11px; line-height:1.8; margin-top:22px; max-width:850px; color:var(--prose-muted); }
 .comparison-disclosure a { display:inline-block; margin-left:8px; text-underline-offset:4px; }
 @media(max-width:1000px) { .comparison-table th,.comparison-table td { padding-inline:16px; } }
 @media(max-width:760px) {
   .comparison-scroll-note { display:block; }
   .comparison-table { min-width:700px; font-size:12px; }
   .comparison-feature-col { width:150px; }
-  .comparison-table tbody th[scope=row],.comparison-table thead th:first-child { position:sticky; left:0; z-index:2; border-right-color:#a7b799; box-shadow:3px 0 0 rgba(69,90,46,.05); }
+  .comparison-table tbody th[scope=row],.comparison-table thead th:first-child { position:sticky; left:0; z-index:2; border-right-color:var(--border); box-shadow:3px 0 0 color-mix(in srgb,var(--brand-forest) 5%,transparent); }
   .comparison-table thead th:first-child { font-size:18px; }
   .comparison-table th,.comparison-table td { padding:16px 14px; }
   .comparison-plan-name { font-size:20px; }

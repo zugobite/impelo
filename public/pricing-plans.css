@@ -1,48 +1,48 @@
 /* Scoped to the rebuilt pricing page; native articles retain the billing hooks. */
-html body.public-prototype .pricing-page .pricing-packages { background:#f7f5ed; padding-block:72px 60px; }
+html body.public-prototype .pricing-page .pricing-packages { background:var(--brand-paper); padding-block:72px 60px; }
 .pricing-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
 .billing-controls { display:flex; align-items:center; flex-wrap:wrap; gap:18px; }
-html body.public-prototype .pricing-page .billing-picker { margin:0; padding:4px; border:1px solid #b7c3aa; border-radius:3px; background:#e3e8d9; }
+html body.public-prototype .pricing-page .billing-picker { margin:0; padding:4px; border:1px solid var(--border); border-radius:3px; background:var(--brand-surface-green); }
 html body.public-prototype .pricing-page .billing-picker [data-slot=tabs-list] { background:transparent; border-radius:0; padding:0; height:auto; box-shadow:none; }
-html body.public-prototype .pricing-page .billing-picker [data-billing] { border-radius:2px; padding:10px 22px; min-height:42px; height:auto; color:#53654a; font-size:13px; background:transparent; border:0; box-shadow:none; }
-html body.public-prototype .pricing-page .billing-picker [data-billing][aria-pressed=true] { background:#203e2b; color:#f7f5ed; box-shadow:2px 2px 0 #93a382; }
-.billing-saving { color:#687d54; font-size:10px; letter-spacing:.02em; }
-html body.public-prototype .pricing-page .billing-note { max-width:760px; font-size:12px; line-height:1.7; color:#6f7b65; margin:18px 0 30px; min-height:42px; }
+html body.public-prototype .pricing-page .billing-picker [data-billing] { border-radius:2px; padding:10px 22px; min-height:42px; height:auto; color:var(--brand-slate); font-size:13px; background:transparent; border:0; box-shadow:none; }
+html body.public-prototype .pricing-page .billing-picker [data-billing][aria-pressed=true] { background:var(--brand-forest); color:var(--brand-paper); box-shadow:2px 2px 0 var(--brand-sage); }
+.billing-saving { color:var(--prose-muted); font-size:10px; letter-spacing:.02em; }
+html body.public-prototype .pricing-page .billing-note { max-width:760px; font-size:12px; line-height:1.7; color:var(--prose-muted); margin:18px 0 30px; min-height:42px; }
 .pricing-tier-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:stretch; }
-html body.public-prototype .pricing-page .pricing-tier { display:flex; flex-direction:column; padding:28px; background:#fcfaf4; border:1px solid #bdc9b1; border-radius:4px; min-width:0; gap:0; box-shadow:5px 5px 0 #e0e5d6; color:#203e2b; }
-html body.public-prototype .pricing-page .pricing-tier.featured { background:#e5eadb; border-color:#60734f; box-shadow:5px 5px 0 #b2c0a1; }
-.tier-label { display:flex; gap:14px; align-items:center; font-size:11px; color:#69795b; margin-bottom:24px; }
-.tier-label .product-index { color:#7d8a70; font-size:12px; }
-html body.public-prototype .pricing-page .pricing-tier h3 { font:400 clamp(25px,2.3vw,34px)/1.12 var(--product-serif); min-height:76px; letter-spacing:-.035em; }
-html body.public-prototype .pricing-page .pricing-tier .plan-desc { font-size:14px; line-height:1.7; margin:12px 0 0; color:#63725a; min-height:70px; }
-.package-price { padding:24px 0; border-bottom:1px solid #cdd5c3; margin-bottom:20px; }
-html body.public-prototype .pricing-page .pricing-tier .plan-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:5px; font-family:'IBM Plex Sans',sans-serif; font-size:clamp(32px,3.1vw,45px); font-weight:500; line-height:1.1; letter-spacing:-.04em; margin:0; color:#203e2b; }
-.price-period { font-size:12px; letter-spacing:0; font-weight:400; color:#728064; }
-.package-billing { font-size:11px; line-height:1.5; color:#768268; margin-top:12px; min-height:17px; }
+html body.public-prototype .pricing-page .pricing-tier { display:flex; flex-direction:column; padding:28px; background:var(--card); border:1px solid var(--border); border-radius:4px; min-width:0; gap:0; box-shadow:5px 5px 0 var(--brand-sage); color:var(--brand-forest); }
+html body.public-prototype .pricing-page .pricing-tier.featured { background:var(--brand-surface-green); border-color:var(--brand-accent-green); box-shadow:5px 5px 0 var(--brand-sage); }
+.tier-label { display:flex; gap:14px; align-items:center; font-size:11px; color:var(--prose-muted); margin-bottom:24px; }
+.tier-label .product-index { color:var(--prose-muted); font-size:12px; }
+html body.public-prototype .pricing-page .pricing-tier h3 { font:500 clamp(24px,2.3vw,30px)/1.2 var(--font-sans); min-height:76px; letter-spacing:-.035em; }
+html body.public-prototype .pricing-page .pricing-tier .plan-desc { font-size:14px; line-height:1.7; margin:12px 0 0; color:var(--brand-slate); min-height:70px; }
+.package-price { padding:24px 0; border-bottom:1px solid var(--border); margin-bottom:20px; }
+html body.public-prototype .pricing-page .pricing-tier .plan-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:5px; font-family:var(--font-sans); font-size:clamp(32px,3.1vw,45px); font-weight:500; line-height:1.1; letter-spacing:-.04em; margin:0; color:var(--brand-forest); }
+.price-period { font-size:12px; letter-spacing:0; font-weight:400; color:var(--prose-muted); }
+.package-billing { font-size:11px; line-height:1.5; color:var(--prose-muted); margin-top:12px; min-height:17px; }
 .tier-capacity { display:grid; gap:9px; list-style:none; margin:0 0 24px; padding:0; min-height:62px; }
-.tier-capacity li { font-size:12px; line-height:1.55; font-weight:500; color:#3e5839; display:flex; align-items:center; gap:10px; }
-.tier-capacity li::before { content:''; width:6px; height:6px; background:#8c9f76; flex-shrink:0; }
-.package-list-label { font:10px 'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.05em; color:#6b7a5e; margin-bottom:16px; }
+.tier-capacity li { font-size:12px; line-height:1.55; font-weight:500; color:var(--brand-slate); display:flex; align-items:center; gap:10px; }
+.tier-capacity li::before { content:''; width:6px; height:6px; background:var(--brand-sage); flex-shrink:0; }
+.package-list-label { font:10px var(--font-mono); text-transform:uppercase; letter-spacing:.05em; color:var(--prose-muted); margin-bottom:16px; }
 .tier-inclusions { list-style:none; margin:0 0 30px; padding:0; display:grid; gap:13px; flex:1; }
-.tier-inclusions li { display:flex; align-items:start; gap:10px; color:#55664a; font-size:13px; line-height:1.6; }
-.tier-inclusions li>span { color:#657f4d; flex-shrink:0; font-weight:700; }
+.tier-inclusions li { display:flex; align-items:start; gap:10px; color:var(--brand-slate); font-size:13px; line-height:1.6; }
+.tier-inclusions li>span { color:var(--brand-accent-green); flex-shrink:0; font-weight:700; }
 html body.public-prototype .pricing-page .pricing-tier>.btn { width:100%; font-size:12px; margin-top:auto; gap:12px; }
-.pricing-disclosure { font-size:11px; line-height:1.8; color:#748068; margin-top:24px; max-width:850px; }
-html body.public-prototype .pricing-page .patient-access-band { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:80px; padding-block:58px; background:#dce4d2; border-block:1px solid #c5d0b8; border-radius:0; align-items:center; }
+.pricing-disclosure { font-size:11px; line-height:1.8; color:var(--prose-muted); margin-top:24px; max-width:850px; }
+html body.public-prototype .pricing-page .patient-access-band { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:80px; padding-block:58px; background:var(--brand-surface-green); border-block:1px solid var(--border); border-radius:0; align-items:center; }
 .patient-access-value>.eyebrow { font-size:10px; }
-.patient-access-value>span { display:block; font:400 92px/1.2 var(--product-serif); letter-spacing:-.06em; margin-top:16px; }
-.patient-access-value>span>span { display:block; font:12px 'IBM Plex Mono',monospace; letter-spacing:.05em; text-transform:uppercase; margin-top:10px; }
+.patient-access-value>span { display:block; font:500 92px/1.2 var(--font-sans); letter-spacing:-.06em; margin-top:16px; }
+.patient-access-value>span>span { display:block; font:12px var(--font-mono); letter-spacing:.05em; text-transform:uppercase; margin-top:10px; }
 html body.public-prototype .pricing-page .patient-access-band h2 { font-size:38px; margin:0 0 20px; }
-.patient-access-band p:not(.eyebrow) { color:#5e6f51; font-size:14px; line-height:1.8; max-width:550px; margin-bottom:24px; }
-.pricing-questions { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:80px; border-top:1px solid #d5dccb; }
+.patient-access-band p:not(.eyebrow) { color:var(--prose-muted); font-size:14px; line-height:1.8; max-width:550px; margin-bottom:24px; }
+.pricing-questions { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:80px; border-top:1px solid var(--border); }
 .pricing-questions h2 { margin-bottom:28px!important; }
-.pricing-faqs details,.pricing-faqs [data-slot=accordion-item] { border-bottom:1px solid #cbd5be; }
-html body.public-prototype .pricing-page .pricing-faqs :is(summary,[data-slot=accordion-trigger]) { font-size:15px; font-weight:500; color:#334e2f; cursor:pointer; padding:23px 0; line-height:1.5; text-align:left; }
-.pricing-faqs :is(details>p,[data-slot=accordion-content]) { padding:0 0 24px; color:#66775a; font-size:14px; line-height:1.8; }
-html body.public-prototype .pricing-page .pricing-research { background:#eeeede; padding-block:32px; border-top:1px solid #d2dbc3; }
+.pricing-faqs details,.pricing-faqs [data-slot=accordion-item] { border-bottom:1px solid var(--border); }
+html body.public-prototype .pricing-page .pricing-faqs :is(summary,[data-slot=accordion-trigger]) { font-size:15px; font-weight:500; color:var(--brand-slate); cursor:pointer; padding:23px 0; line-height:1.5; text-align:left; }
+.pricing-faqs :is(details>p,[data-slot=accordion-content]) { padding:0 0 24px; color:var(--prose-muted); font-size:14px; line-height:1.8; }
+html body.public-prototype .pricing-page .pricing-research { background:var(--brand-surface-green); padding-block:32px; border-top:1px solid var(--border); }
 .pricing-source-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; margin:24px 0; }
 .pricing-source-grid h3 { font-size:17px; margin-bottom:12px; }
-.pricing-research p { font-size:13px; line-height:1.8; color:#647457; }
+.pricing-research p { font-size:13px; line-height:1.8; color:var(--prose-muted); }
 body.public-prototype.large-text .pricing-page :is(.tier-inclusions li,.plan-desc,.pricing-faqs p) { font-size:1rem!important; }
 @media(max-width:1100px) { html body.public-prototype .pricing-page .pricing-tier { padding:24px 20px; } .pricing-tier-grid { gap:16px; } .pricing-questions { gap:40px; } }
 @media(max-width:880px) { .pricing-tier-grid { grid-template-columns:1fr; gap:24px; } html body.public-prototype .pricing-page .pricing-tier { padding:28px; } html body.public-prototype .pricing-page .pricing-tier h3 { min-height:0; font-size:34px; } html body.public-prototype .pricing-page .pricing-tier .plan-desc { min-height:0; } .tier-capacity { min-height:0; } .pricing-tier-grid .plan-price { font-size:44px!important; } }
