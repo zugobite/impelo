@@ -9,6 +9,10 @@ const routeFiles: Record<string, string> = {
   '/cookies': 'cookies.html',
   '/terms': 'terms.html',
   '/information-access': 'information-access.html',
+  '/careers': 'careers.html',
+  '/partners': 'partners.html',
+  '/newsroom': 'newsroom.html',
+  '/help-centre': 'help-centre.html',
 }
 
 export default defineEventHandler(async (event) => {
