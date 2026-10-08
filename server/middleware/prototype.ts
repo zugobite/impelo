@@ -13,6 +13,7 @@ const routeFiles: Record<string, string> = {
   '/partners': 'partners.html',
   '/newsroom': 'newsroom.html',
   '/help-centre': 'help-centre.html',
+  '/download': 'download.html',
 }
 
 export default defineEventHandler(async (event) => {

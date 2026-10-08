@@ -32,5 +32,6 @@ pnpm build
 - `/partners/`
 - `/newsroom/`
 - `/help-centre/`
+- `/download/`
 
 The HTML is served through Nuxt's Nitro middleware so the prototype markup and browser behavior remain byte-for-byte close to the approved source. Shared visual assets, fonts, CSS, and client controllers live in `public/`.
