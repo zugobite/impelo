@@ -1,6 +1,6 @@
 .pricing-comparison { background:var(--brand-paper); }
 .comparison-scroll-note { display:none; font:10px var(--font-mono); color:var(--prose-muted); margin:0 0 14px; }
-.comparison-table-wrap { position:relative; overflow:auto; border:1px solid var(--border); border-radius:3px; background:var(--card); box-shadow:5px 5px 0 var(--brand-sage); -webkit-overflow-scrolling:touch; }
+html body.public-prototype .product-page .comparison-table-wrap { position:relative; overflow:auto; -webkit-overflow-scrolling:touch; }
 .comparison-table-wrap:focus-visible { outline:3px solid var(--brand-accent-green); outline-offset:5px; }
 .comparison-table { width:100%; min-width:840px; table-layout:fixed; border-collapse:separate; border-spacing:0; color:var(--brand-slate); font-size:13px; }
 .comparison-table caption { position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
@@ -12,7 +12,7 @@
 .comparison-plan-name { display:block; font:500 21px/1.25 var(--font-sans); color:var(--brand-forest); }
 .comparison-price { display:block; font-size:11px; font-weight:400; color:var(--prose-muted); margin-top:12px; }
 .comparison-table thead a { display:inline-block; margin-top:15px; font-size:11px; font-weight:500; text-underline-offset:4px; }
-.comparison-table .featured-column { background:var(--brand-surface-green); box-shadow:inset 0 4px 0 var(--brand-accent-green); }
+.comparison-table .featured-column { background:var(--brand-surface-green); }
 .comparison-table tbody th[scope=row] { font-weight:500; background:var(--card); }
 .comparison-table tbody tr:nth-child(odd):not(.comparison-group) :is(td,th[scope=row]) { background:var(--brand-surface-slate); }
 .comparison-table .comparison-group th { padding:13px 22px; font:10px var(--font-mono); text-transform:uppercase; letter-spacing:.07em; color:var(--brand-sage); background:var(--brand-forest); border-color:var(--brand-forest); }

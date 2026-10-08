@@ -1,8 +1,9 @@
 /* Product pages inherit the existing brand palette and IBM Plex type system. */
 html body.public-prototype .product-page { font-family:var(--font-sans); background:var(--brand-paper); color:var(--brand-forest); }
-.product-index,.scene-tag,.device-caption,.billing-saving { font-family:var(--font-mono); font-size:11px; font-weight:400; line-height:1.6; letter-spacing:.08em; text-transform:uppercase; }
-html body.public-prototype .product-hero { max-width:1440px; margin:0 auto; padding:96px max(32px,5vw) 88px; display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:64px; align-items:center; }
-html body.public-prototype .product-hero h1 { font-family:var(--font-sans); font-size:clamp(36px,4.2vw,58px); font-weight:500; line-height:1.12; letter-spacing:-.025em; margin:22px 0 24px; max-width:16ch; }
+.product-index,.billing-saving { font-family:var(--font-mono); font-size:11px; font-weight:400; line-height:1.6; letter-spacing:.08em; text-transform:uppercase; }
+/* Reuse the scenic page-intro artwork, wash and heading styles from the site. */
+html body.public-prototype .product-hero { min-height:440px; }
+html body.public-prototype .product-hero-copy { padding:64px var(--page-edge); }
 .product-page h1 em,.product-page h2 em { color:var(--brand-slate); font-weight:inherit; font-style:normal; }
 html body.public-prototype .product-page .eyebrow { font-family:var(--font-sans); font-size:14px; font-weight:500; color:var(--brand-slate); }
 .product-lead { max-width:480px; color:var(--brand-slate); font-size:17px; line-height:1.8; margin-bottom:28px; }
@@ -11,11 +12,6 @@ html body.public-prototype .product-page .eyebrow { font-family:var(--font-sans)
 .product-text-link { display:inline-block; font-size:14px; font-weight:500; line-height:1.6; text-decoration:underline; text-underline-offset:6px; }
 .product-availability { display:flex; gap:10px; align-items:center; margin:24px 0 0; font-size:12px; color:var(--prose-muted); }
 .pixel-status { display:inline-block; width:8px; height:8px; background:var(--brand-accent-green); box-shadow:2px 2px 0 var(--brand-sage); flex-shrink:0; }
-.product-device-scene { position:relative; padding:64px 0 68px 6px; isolation:isolate; display:grid; grid-template-columns:minmax(0,1fr) minmax(100px,.29fr); align-items:end; gap:18px; }
-.pricing-device-scene .hero-desktop { grid-column:1 / -1; }
-.product-device-scene::before { content:''; position:absolute; z-index:-1; inset:38% -14px 0 6%; background:var(--brand-surface-green); clip-path:polygon(0 16%,9% 16%,9% 8%,21% 8%,21% 0,78% 0,78% 8%,91% 8%,91% 16%,100% 16%,100% 100%,0 100%); }
-.scene-tag { position:absolute; top:12px; right:32px; color:var(--prose-muted); }
-.device-caption { position:absolute; bottom:13px; left:12%; color:var(--prose-muted); font-size:10px; }
 .pixel-device { position:relative; width:100%; filter:drop-shadow(7px 9px 0 color-mix(in srgb,var(--brand-forest) 16%,transparent)); }
 .pixel-device-shell { padding:0 12px; background:var(--brand-forest); border:4px solid var(--brand-forest); box-shadow:inset 3px 3px 0 var(--brand-accent-green),inset -3px -3px 0 var(--brand-accent-green); clip-path:polygon(0 12px,4px 12px,4px 4px,12px 4px,12px 0,calc(100% - 12px) 0,calc(100% - 12px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 12px,100% 12px,100% calc(100% - 12px),calc(100% - 4px) calc(100% - 12px),calc(100% - 4px) calc(100% - 4px),calc(100% - 12px) calc(100% - 4px),calc(100% - 12px) 100%,12px 100%,12px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 12px),0 calc(100% - 12px)); }
 .pixel-device-top { height:16px; display:grid; place-items:center; }
@@ -31,10 +27,9 @@ html body.public-prototype .pixel-device-screen { display:block; position:static
 .pixel-device-phone .pixel-device-top { height:18px; }
 .pixel-device-phone .pixel-device-top span { width:22px; height:3px; }
 .pixel-device-phone .pixel-device-bottom { min-height:16px; }
-.hero-phone { position:relative; width:100%; min-width:0; margin-bottom:10px; }
 .pixel-device-tablet { width:220px; }
 .pixel-device-tablet .pixel-device-shell { padding-inline:10px; }
-.product-section { max-width:1440px; margin:0 auto; padding:88px max(32px,5vw); scroll-margin-top:100px; }
+.product-section { max-width:none; margin:0 auto; padding:88px var(--page-edge); scroll-margin-top:100px; }
 .product-section-heading { display:flex; align-items:end; justify-content:space-between; gap:48px; margin-bottom:44px; }
 html body.public-prototype .product-section h2 { font-family:var(--font-sans); font-size:clamp(28px,3vw,40px); font-weight:500; line-height:1.2; letter-spacing:-.025em; margin:16px 0 0; }
 .product-section-heading>p { max-width:400px; font-size:15px; line-height:1.8; color:var(--brand-slate); }
@@ -46,17 +41,10 @@ html body.public-prototype .product-cta h2 { font:500 clamp(28px,3vw,40px)/1.2 v
 .product-cta .product-actions { justify-content:center; }
 body.public-prototype.contrast .product-page { --prose-muted:var(--brand-forest); }
 body.public-prototype.large-text .product-page :is(.product-lead,.product-section-heading>p) { font-size:1.15rem; }
-@media(max-width:1000px) { html body.public-prototype .product-hero { gap:32px; padding-block:72px; } html body.public-prototype .product-hero h1 { font-size:44px; } .product-device-scene { padding-inline:0 22px; } }
 @media(max-width:760px) {
-  html body.public-prototype .product-hero { grid-template-columns:1fr; padding:56px 24px 48px; gap:18px; }
-  html body.public-prototype .product-hero h1 { font-size:clamp(34px,8vw,44px); max-width:16ch; }
-  .product-hero-copy { max-width:560px; }
-  .product-device-scene { width:min(100%,560px); margin:0 auto; padding:52px 34px 56px 0; }
-  .hero-phone { width:100%; min-width:0; }
-  .scene-tag { top:15px; right:0; font-size:9px; }
-  .device-caption { bottom:8px; font-size:9px; }
-  .product-device-scene::before { right:-10px; }
-  .product-section { padding:56px 24px; }
+  html body.public-prototype .product-hero { min-height:0; }
+  html body.public-prototype .product-hero-copy { padding:40px var(--page-gutter); }
+  .product-section { padding:56px var(--page-gutter); }
   .product-section-heading { flex-direction:column; align-items:start; gap:20px; margin-bottom:32px; }
   .product-section-heading>p { max-width:540px; }
   html body.public-prototype .product-section h2 { font-size:30px; }

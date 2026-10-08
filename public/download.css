@@ -1,36 +1,31 @@
 .product-strip { display:flex; justify-content:center; gap:72px; padding:21px 24px; background:var(--brand-surface-green); border-block:1px solid var(--border); font-size:12px; color:var(--brand-slate); }
 .product-strip>span { display:flex; align-items:center; gap:12px; }
 .product-strip b { color:var(--brand-forest); font-weight:600; }
-.download-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px; }
-.download-card { border:1px solid var(--border); border-radius:4px; background:var(--card); min-width:0; overflow:hidden; box-shadow:5px 5px 0 var(--brand-sage); display:flex; flex-direction:column; }
-.download-card-top { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:24px 28px 0; }
+.download-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:stretch; }
+.download-card-top { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .product-index { color:var(--prose-muted); }
 .availability-pill { font:10px var(--font-mono); letter-spacing:.03em; color:var(--prose-muted); border:1px solid var(--border); background:var(--brand-surface-slate); padding:5px 8px; border-radius:2px; white-space:nowrap; }
-.download-card-copy { padding:27px 28px 18px; }
+.download-card-copy { padding:24px 0 8px; }
 .platform-kicker { font-size:12px; color:var(--prose-muted); }
 html body.public-prototype .download-card h3 { font:500 clamp(26px,2.4vw,34px)/1.2 var(--font-sans); letter-spacing:-.04em; margin:10px 0 16px; }
 .download-card-copy>p:last-child { max-width:420px; min-height:54px; font-size:14px; line-height:1.8; color:var(--brand-slate); }
-html body.public-prototype .download-page .device-stage { margin:12px 16px 0; padding:26px 24px 30px; position:relative; display:flex; justify-content:center; align-items:center; min-height:400px; flex:1; isolation:isolate; background:none; border:0; border-radius:0; }
+html body.public-prototype .download-page .device-stage { margin:0; padding:26px 24px 30px; position:relative; display:flex; justify-content:center; align-items:center; min-height:400px; isolation:isolate; background:none; border:0; border-radius:0; }
 .device-stage::before { content:''; position:absolute; inset:26% 0 0; background:var(--brand-surface-green); z-index:-1; clip-path:polygon(0 18%,8% 18%,8% 8%,18% 8%,18% 0,82% 0,82% 8%,92% 8%,92% 18%,100% 18%,100% 100%,0 100%); }
 .device-stage-phone .pixel-device { width:150px; }
 .device-stage-pair { align-items:end; gap:14px; }
 .device-stage-pair .pixel-device-tablet { width:210px; }
 .device-stage-pair .pixel-device-phone { width:105px; margin-bottom:-8px; }
 .device-stage-desktop .pixel-device { width:min(100%,470px); }
-.download-card-bottom { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:24px 28px; font-size:12px; color:var(--prose-muted); }
 @media(max-width:1000px) { .product-strip { gap:28px; } .device-stage { padding-inline:12px; } .device-stage-pair .pixel-device-tablet { width:170px; } .device-stage-pair .pixel-device-phone { width:90px; } }
 @media(max-width:760px) {
   .product-strip { flex-wrap:wrap; gap:10px 24px; justify-content:start; font-size:11px; }
   .product-strip>span { gap:8px; }
   .download-grid { grid-template-columns:1fr; gap:24px; }
-  .download-card-top { padding:20px 20px 0; }
-  .download-card-copy { padding:24px 20px 8px; }
   .download-card-copy>p:last-child { min-height:0; }
-  html body.public-prototype .download-page .device-stage { min-height:340px; padding:24px 12px; margin-inline:10px; }
+  html body.public-prototype .download-page .device-stage { min-height:340px; padding:24px 12px; }
   .device-stage-phone .pixel-device { width:128px; }
   .device-stage-pair .pixel-device-tablet { width:176px; }
   .device-stage-pair .pixel-device-phone { width:84px; }
   .device-stage-pair { gap:10px; }
-  .download-card-bottom { padding:20px; gap:12px; }
 }
 @media(max-width:370px) { .device-stage-pair .pixel-device-tablet { width:152px; } .device-stage-pair .pixel-device-phone { width:76px; } }
