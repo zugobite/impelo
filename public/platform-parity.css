@@ -1,0 +1,19 @@
+/* Only page layout belongs to the website. All component properties cascade
+   back to the shared ShadCN-Vue Tailwind/component layers. */
+html body[data-component-parity] [data-slot],
+html body[data-component-parity] [data-slot=button] svg,
+html body[data-component-parity] [data-slot=tabs-trigger] svg {
+  all: revert-layer;
+}
+.ui-host{display:contents}
+html body[data-component-parity] [data-slot=accordion-content][data-state=closed]{display:none}
+.platform-field{min-width:0}.platform-check{align-items:center}.platform-preference{justify-content:space-between;flex-direction:row-reverse;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--border)}.platform-preference [data-slot=label]{flex:1;min-width:0}.platform-preference [data-slot=field-description]{margin-top:6px}.form-row{gap:16px}.language-control.platform-field{display:flex;flex-direction:row;align-items:center;gap:8px}.language-control [data-slot=native-select-wrapper]{width:125px}.language-control [data-slot=label]{flex:0}.journey-tabs,.billing-picker{display:block;margin-bottom:24px}.preference-list{margin:0}.dialog-projection{display:grid;gap:16px}.dialog-projection>p{margin:0}.pub-footer [data-slot=button]{text-align:left}.feature-grid .icon-box{margin:0}.feature-grid [data-slot=card-footer]{margin-top:auto}.feature-grid,.plans,.team-grid{align-items:stretch}.team-card .team-avatar{margin:0 0 16px}.contact-card form{display:grid;gap:16px}.pub-header [data-slot=button].menu-toggle{display:none}.pub-header [data-slot=button].header-cta{display:inline-flex}.access-button>span{display:contents}.demo-actions{flex-wrap:wrap}.journey-steps [data-slot=button]{align-items:start;gap:12px}.journey-steps strong,.journey-steps small{display:block}.journey-steps small{margin-top:4px;color:var(--muted-foreground);font-size:12px;line-height:1.5}.hero-actions{align-items:center}.app-top{margin-bottom:16px}.app-demo [data-slot=card-content]{display:grid;gap:16px}.app-top .demo-badge{margin-left:auto}.team-card{min-width:0}.refined-footer [data-slot=button]{justify-content:start}
+@media(max-width:1200px){.pub-header [data-slot=button].header-cta{display:none}}
+@media(max-width:800px){.pub-header [data-slot=button].menu-toggle{display:inline-flex}.pub-header{height:80px}.team-card .team-avatar{margin:0}.journey-tabs [data-slot=tabs-list]{max-width:100%}}
+@media(max-width:480px){.language-control [data-slot=native-select-wrapper]{width:108px}.language-control [data-slot=label]{display:none}.pub-header [data-slot=button].access-button>span{display:none}.team-card [data-slot=card-content]{display:block}.journey-steps{grid-template-columns:1fr}.contact-card .form-row{grid-template-columns:1fr}.hero-actions{gap:16px}.hero-actions [data-slot=button]{max-width:100%;white-space:normal;height:auto;min-height:36px}}
+
+body[data-component-parity]{font-family:var(--font-sans);line-height:1.5}
+
+body.large-text[data-component-parity]{--text-sm:1rem;--text-sm--line-height:1.5;--text-base:1.125rem;--text-base--line-height:1.5}
+
+.footer-grid>*{min-width:0}@media(max-width:800px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "fynbos",
+    "name": "Fynbos Care Clinic",
+    "city": "Cape Town",
+    "suburb": "Gardens",
+    "postcode": "8001",
+    "lat": -33.935,
+    "lng": 18.412,
+    "services": [
+      "general",
+      "family"
+    ],
+    "languages": "English · isiXhosa · Afrikaans",
+    "description": "A neighbourhood practice concept for everyday consultations and family visits."
+  },
+  {
+    "id": "aloe",
+    "name": "Aloe Community Practice",
+    "city": "Cape Town",
+    "suburb": "Claremont",
+    "postcode": "7708",
+    "lat": -33.984,
+    "lng": 18.465,
+    "services": [
+      "general",
+      "wellness"
+    ],
+    "languages": "English · isiXhosa",
+    "description": "A community-care concept with clear arrival information and staff-assisted access."
+  },
+  {
+    "id": "protea",
+    "name": "Protea Family Clinic",
+    "city": "Cape Town",
+    "suburb": "Bellville",
+    "postcode": "7530",
+    "lat": -33.899,
+    "lng": 18.629,
+    "services": [
+      "family",
+      "wellness"
+    ],
+    "languages": "English · Afrikaans",
+    "description": "A family-practice concept connecting visits, queue context and follow-up information."
+  },
+  {
+    "id": "ubuntu",
+    "name": "Ubuntu Family Practice",
+    "city": "Johannesburg",
+    "suburb": "Rosebank",
+    "postcode": "2196",
+    "lat": -26.145,
+    "lng": 28.041,
+    "services": [
+      "general",
+      "family"
+    ],
+    "languages": "English · isiZulu · Sesotho",
+    "description": "A practice concept for an understandable visit, from arrival to the next step."
+  },
+  {
+    "id": "marula",
+    "name": "Marula Community Clinic",
+    "city": "Johannesburg",
+    "suburb": "Soweto",
+    "postcode": "1804",
+    "lat": -26.267,
+    "lng": 27.858,
+    "services": [
+      "general",
+      "wellness"
+    ],
+    "languages": "English · isiZulu · Setswana",
+    "description": "A community-clinic concept designed around useful information and assisted journeys."
+  },
+  {
+    "id": "acacia",
+    "name": "Acacia Health Practice",
+    "city": "Johannesburg",
+    "suburb": "Sandton",
+    "postcode": "2196",
+    "lat": -26.107,
+    "lng": 28.057,
+    "services": [
+      "family",
+      "wellness"
+    ],
+    "languages": "English · Sepedi",
+    "description": "A connected-practice concept for coordinated arrivals and continuity between visits."
+  }
+]

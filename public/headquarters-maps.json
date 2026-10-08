@@ -1,0 +1,26 @@
+{
+  "cape-town": {
+    "name": "Cape Town",
+    "province": "Western Cape",
+    "link": "https://www.google.com/maps/search/?api=1&query=Cape+Town+South+Africa",
+    "asset": "/assets/cape-town-map.png",
+    "alt": "Illustrative dimensional pixel-art map of Cape Town, showing Table Mountain, the coastline, harbour and city streets",
+    "address": "71 Fynbos Lane \u00b7 Cape Town",
+    "anchor": [
+      0.545,
+      0.425
+    ]
+  },
+  "johannesburg": {
+    "name": "Johannesburg",
+    "province": "Gauteng",
+    "link": "https://www.google.com/maps/search/?api=1&query=Johannesburg+South+Africa",
+    "asset": "/assets/johannesburg-map.png",
+    "alt": "Illustrative dimensional pixel-art map of Johannesburg, showing the inland city grid, green parks and skyline",
+    "address": "28 Jacaranda Way \u00b7 Johannesburg",
+    "anchor": [
+      0.53,
+      0.51
+    ]
+  }
+}
