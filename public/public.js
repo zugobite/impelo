@@ -75,6 +75,7 @@
   $('#language').setAttribute('aria-label',text('language'));$('#footer-language').setAttribute('aria-label',text('language'));
   $$('[data-slot=checkbox]').forEach(el=>{const label=document.querySelector(`label[for="${el.id}"]`);if(label)el.setAttribute('aria-label',label.textContent.trim());});
   $('#main-nav').setAttribute('aria-label',text('menu'));
+  if($('.menu-toggle')?.getAttribute('aria-expanded')==='true')$('.menu-toggle').setAttribute('aria-label',text('close'));
   $('.journey-tabs')?.setAttribute('aria-label',text('how'));
   $('.billing-picker')?.setAttribute('aria-label',text('pricing'));
   $('.app-demo')?.setAttribute('aria-label',text('demo'));
@@ -89,8 +90,20 @@
   if(save){storage.set('impelo-public-language',lang);$('#announce').textContent=`${text('changed')}: ${$('#language').selectedOptions[0].textContent}`;}
  }
  $('#language').addEventListener('change',e=>{lang=e.target.value;renderLang(true)});$('#footer-language').addEventListener('change',e=>{lang=e.target.value;renderLang(true)});
- const menu=$('.menu-toggle');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));$('#main-nav').classList.toggle('open',open)});
- $('#main-nav').addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');$('#main-nav').classList.remove('open')}});
+ const menu=$('.menu-toggle');
+ const menuLabel=menu?.querySelector('span');
+ const setMenu=open=>{
+  if(!menu)return;
+  menu.setAttribute('aria-expanded',String(open));
+  $('#main-nav').classList.toggle('open',open);
+  document.body.classList.toggle('menu-open',open);
+  menu.querySelector('use')?.setAttribute('href',open?'#i-x':'#i-menu');
+  if(open){menu.setAttribute('aria-label',text('close'));menuLabel?.setAttribute('aria-hidden','true');}
+  else{menu.removeAttribute('aria-label');menuLabel?.removeAttribute('aria-hidden');}
+ };
+ menu?.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
+ $('#main-nav')?.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){setMenu(false);menu.focus()}});
  let dialogOpener;
  $$('[data-open]').forEach(b=>b.addEventListener('click',()=>{dialogOpener=b;$('#'+b.dataset.open).showModal()}));
  $$('dialog').forEach(d=>{d.addEventListener('close',()=>dialogOpener?.focus({preventScroll:true}));d.querySelector('[data-close]').addEventListener('click',()=>d.close());});
