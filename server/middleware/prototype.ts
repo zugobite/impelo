@@ -1,3 +1,5 @@
+import { injectPublicSeo } from '../seo/public-seo.mjs'
+
 const routeFiles: Record<string, string> = {
   '/': 'home.html',
   '/how-it-works': 'how-it-works.html',
@@ -30,5 +32,5 @@ export default defineEventHandler(async (event) => {
   }
 
   setHeader(event, 'content-type', 'text/html; charset=utf-8')
-  return html
+  return injectPublicSeo(html, normalized)
 })
