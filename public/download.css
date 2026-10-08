@@ -4,7 +4,7 @@
 .download-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:stretch; }
 .download-card-top { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .product-index { color:var(--prose-muted); }
-.availability-pill { font:10px var(--font-mono); letter-spacing:.03em; color:var(--prose-muted); border:1px solid var(--border); background:var(--brand-surface-slate); padding:5px 8px; border-radius:2px; white-space:nowrap; }
+.availability-pill { font:10px var(--font-mono); letter-spacing:.03em; color:var(--prose-muted); border:1px solid var(--border); background:var(--brand-surface-slate); padding:5px 8px; border-radius:7px; white-space:nowrap; }
 .download-card-copy { padding:24px 0 8px; }
 .platform-kicker { font-size:12px; color:var(--prose-muted); }
 html body.public-prototype .download-card h3 { font:500 clamp(26px,2.4vw,34px)/1.2 var(--font-sans); letter-spacing:-.04em; margin:10px 0 16px; }
@@ -12,6 +12,7 @@ html body.public-prototype .download-card h3 { font:500 clamp(26px,2.4vw,34px)/1
 html body.public-prototype .download-page .device-stage { margin:0; padding:26px 24px 30px; position:relative; display:flex; justify-content:center; align-items:center; min-height:400px; isolation:isolate; background:none; border:0; border-radius:0; }
 .device-stage::before { content:''; position:absolute; inset:26% 0 0; background:var(--brand-surface-green); z-index:-1; clip-path:polygon(0 18%,8% 18%,8% 8%,18% 8%,18% 0,82% 0,82% 8%,92% 8%,92% 18%,100% 18%,100% 100%,0 100%); }
 .device-stage-phone .pixel-device { width:150px; }
+.device-stage-tablet .pixel-device { width:210px; }
 .device-stage-pair { align-items:end; gap:14px; }
 .device-stage-pair .pixel-device-tablet { width:210px; }
 .device-stage-pair .pixel-device-phone { width:105px; margin-bottom:-8px; }
